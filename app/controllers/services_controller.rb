@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
-    @services = Service.all
+    @pagy, @services = pagy(Service.all)
   end
 
   # GET /services/1 or /services/1.json

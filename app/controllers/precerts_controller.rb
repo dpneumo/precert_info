@@ -3,7 +3,7 @@ class PrecertsController < ApplicationController
 
   # GET /precerts or /precerts.json
   def index
-    @precerts = Precert.all
+    @pagy, @precerts = pagy(Precert.all)
   end
 
   # GET /precerts/1 or /precerts/1.json
