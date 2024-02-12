@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Precerts</h1>
+
+<div id="precerts">
+  <% @precerts.each do |precert| %>
+    <%= render precert %>
+    <p>
+      <%= link_to "Show this precert", precert %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New precert", new_precert_path %>

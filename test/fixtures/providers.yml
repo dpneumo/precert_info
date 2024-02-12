@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Sam Smith, DO
+  office: one
+
+two:
+  name: Jill Jones, MD
+  office: two

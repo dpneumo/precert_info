@@ -1,0 +1,62 @@
+<%= form_with(model: precert) do |form| %>
+  <% if precert.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(precert.errors.count, "error") %> prohibited this precert from being saved:</h2>
+
+      <ul>
+        <% precert.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :patientMRN, style: "display: block" %>
+    <%= form.text_field :patientMRN %>
+  </div>
+
+  <div>
+    <%= form.label :diagnosis_id, style: "display: block" %>
+    <%= form.text_field :diagnosis_id %>
+  </div>
+
+  <div>
+    <%= form.label :insurer_id, style: "display: block" %>
+    <%= form.text_field :insurer_id %>
+  </div>
+
+  <div>
+    <%= form.label :provider_id, style: "display: block" %>
+    <%= form.text_field :provider_id %>
+  </div>
+
+  <div>
+    <%= form.label :service_id, style: "display: block" %>
+    <%= form.text_field :service_id %>
+  </div>
+
+  <div>
+    <%= form.label :submitted, style: "display: block" %>
+    <%= form.datetime_field :submitted %>
+  </div>
+
+  <div>
+    <%= form.label :approved, style: "display: block" %>
+    <%= form.datetime_field :approved %>
+  </div>
+
+  <div>
+    <%= form.label :confirmation, style: "display: block" %>
+    <%= form.text_field :confirmation %>
+  </div>
+
+  <div>
+    <%= form.label :note, style: "display: block" %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

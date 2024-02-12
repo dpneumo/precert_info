@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Arlington
+  street1: 911
+  street2: Suite C
+  city: Arlington
+  state: TX
+  zip: 76012
+  ph_main: 817-123-4567
+
+two:
+  name: Fairmount
+  street1: 123 Fairmount
+  street2: 
+  city: Fort Worth
+  state: 
+  zip: 76111
+  ph_main: 817-456-3298

@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  patientMRN: 1234
+  diagnosis: one
+  insurer: one
+  provider: one
+  service: one
+  submitted: 2024-02-11 11:42:54
+  approved: 2024-02-12 11:00:00
+  confirmation: ABC123
+  note: Easy Peasy
+
+two:
+  patientMRN: 9876
+  diagnosis: two
+  insurer: two
+  provider: two
+  service: two
+  submitted: 2024-02-11 11:42:54
+  approved: 2024-04-11 11:00:00
+  confirmation: XYZ999
+  note: Super Hard

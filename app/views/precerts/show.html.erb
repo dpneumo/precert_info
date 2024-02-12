@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @precert %>
+
+<div>
+  <%= link_to "Edit this precert", edit_precert_path(@precert) %> |
+  <%= link_to "Back to precerts", precerts_path %>
+
+  <%= button_to "Destroy this precert", @precert, method: :delete %>
+</div>
