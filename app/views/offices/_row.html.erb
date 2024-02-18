@@ -1,0 +1,9 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad'>
+      <%= link_to item.name,
+                  office_path(item),
+                  class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base'><%= item.address %></td>
+    <td class='td-pad td-base'><%= item.ph_main %></td>
+  </tr>

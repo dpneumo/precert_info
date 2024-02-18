@@ -1,0 +1,11 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad'>
+      <%= link_to item.id,
+                  call_path(item),
+                  class: "td-emphasized link-hover" %>
+    </td>
+    <td class='td-pad td-base'><%= item.precert %></td>
+    <td class='td-pad td-base'><%= item.time_of_call %></td>
+    <td class='td-pad td-base'><%= item.duration %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.note_hint %></td>
+  </tr>

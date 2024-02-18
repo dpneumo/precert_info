@@ -1,19 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Providers</h1>
+<div class='flex flex-col sm:flex-row items-center justify-center'>
+  <div class='mb-5 mx-2 bg-green-300'>
+    <div class="flex flex-row justify-between">
+      <h1 class="font-sans font-bold text-2xl">Providers</h1>
+    </div>
 
-<div id="providers">
-  <% @providers.each do |provider| %>
-    <%= render provider %>
-    <p>
-      <%= link_to "Show this provider", provider %>
-    </p>
-  <% end %>
+    <%= render "shared/table",
+            head: 'head',
+            row:  'row',
+            collection: @providers %>
+
+    <br>
+    <%== pagy_nav(@pagy) %>
+
+    <hr class="mt-1 border-1 border-gray-700" />
+    <br>
+
+    <%= link_to 'New Provider', new_provider_path, class: "text-lg font-sans font-medium link-hover" %>
+  </div>
 </div>
-
-<br>
-<%== pagy_nav(@pagy) %>
-<hr class='mt-1 border-1 border-gray-700' />
-<br>
-
-<%= link_to "New provider", new_provider_path %>
