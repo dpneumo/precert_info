@@ -18,22 +18,54 @@
 
   <div>
     <%= form.label :diagnosis_id, style: "display: block" %>
-    <%= form.text_field :diagnosis_id %>
+    <%= form.select( 'diagnosis_id', Diagnosis.select_collection,
+      { include_blank: false,
+        prompt: true,
+        selected: precert.diagnosis_id || true
+      },
+      { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+        disabled: false
+      }
+    ) %>
   </div>
 
   <div>
     <%= form.label :insurer_id, style: "display: block" %>
-    <%= form.text_field :insurer_id %>
+    <%= form.select( :insurer_id, Insurer.select_collection,
+      { include_blank: false,
+        prompt: true,
+        selected: precert.insurer_id || true
+      },
+      { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+        disabled: false
+      }
+    ) %>
   </div>
 
   <div>
     <%= form.label :provider_id, style: "display: block" %>
-    <%= form.text_field :provider_id %>
+    <%= form.select( :provider_id, Provider.select_collection,
+      { include_blank: false,
+        prompt: true,
+        selected: precert.provider_id || true
+      },
+      { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+        disabled: false
+      }
+    ) %>
   </div>
 
   <div>
     <%= form.label :service_id, style: "display: block" %>
-    <%= form.text_field :service_id %>
+    <%= form.select( :service_id, Service.select_collection,
+      { include_blank: false,
+        prompt: true,
+        selected: precert.service_id || true
+      },
+      { class: "block mt-2 py-3 pl-3 text-gray-900 font-medium rounded-md border-0 shadow ring",
+        disabled: false
+      }
+    ) %>
   </div>
 
   <div>
