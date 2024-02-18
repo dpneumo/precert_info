@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @service %>
+<div class="flex flex-col items-center justify-center">
 
-<div>
-  <%= link_to "Edit this service", edit_service_path(@service) %> |
-  <%= link_to "Back to services", services_path %>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
+      <%= render 'service' %>
+    </div>
 
-  <%= button_to "Destroy this service", @service, method: :delete %>
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_service_path(@service) %>
+      <%= render "shared/show/back_btn", path: services_path %>
+      <%= render "shared/show/delete_btn", path: service_path(@service) %>
+    </div>
+  </div>
+
 </div>

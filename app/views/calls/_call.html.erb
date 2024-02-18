@@ -1,22 +1,26 @@
-<div id="<%= dom_id call %>">
-  <p>
-    <strong>Precert:</strong>
-    <%= call.precert_id %>
-  </p>
+<div class='grid auto-rows-min grid-rows-auto'>
+  <header class='row-start-1'>
+    <h1 class="mb-2 text-2xl font-sans font-bold">Call Detail</h1>
+  </header>
 
-  <p>
-    <strong>Call time:</strong>
-    <%= call.call_time %>
-  </p>
+  <div class='row-start-2 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @call.precert_id, label: 'Precert ID'
+    %>
+  </div>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= call.duration %>
-  </p>
+  <div class='row-start-3 h-fit mb-3'>
+    <%= render "shared/show/attrib",
+      attributes: [
+        {attribute: @call.call_time, label: 'Call Start'},
+        {attribute: @call.duration, label: 'Duration'},
+      ]
+    %>
+  </div>
 
-  <p>
-    <strong>Note:</strong>
-    <%= call.note %>
-  </p>
-
+  <div class='row-start-4 h-fit mb-3'>
+    <%= render "shared/show/note",
+      attribute: @call.note, label: 'Note'
+    %>
+  </div>
 </div>

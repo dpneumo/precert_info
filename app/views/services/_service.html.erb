@@ -1,12 +1,17 @@
-<div id="<%= dom_id service %>">
-  <p>
-    <strong>Name:</strong>
-    <%= service.name %>
-  </p>
+<div class='grid auto-rows-min grid-rows-auto'>
+  <header class='row-start-1'>
+    <h1 class="mb-2 text-2xl font-sans font-bold">Service Detail</h1>
+  </header>
 
-  <p>
-    <strong>Servtype:</strong>
-    <%= service.servtype %>
-  </p>
+  <div class='row-start-2 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @service.name, label: 'Name'
+    %>
+  </div>
 
+  <div class='row-start-3 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @service.servtype, label: 'Type'
+    %>
+  </div>
 </div>

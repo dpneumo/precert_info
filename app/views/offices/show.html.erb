@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @office %>
+<div class="flex flex-col items-center justify-center">
 
-<div>
-  <%= link_to "Edit this office", edit_office_path(@office) %> |
-  <%= link_to "Back to offices", offices_path %>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
+      <%= render 'office' %>
+    </div>
 
-  <%= button_to "Destroy this office", @office, method: :delete %>
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_office_path(@office) %>
+      <%= render "shared/show/back_btn", path: offices_path %>
+      <%= render "shared/show/delete_btn", path: office_path(@office) %>
+    </div>
+  </div>
+
 </div>

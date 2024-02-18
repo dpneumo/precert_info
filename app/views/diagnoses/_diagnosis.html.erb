@@ -1,12 +1,17 @@
-<div id="<%= dom_id diagnosis %>">
-  <p>
-    <strong>Name:</strong>
-    <%= diagnosis.name %>
-  </p>
+<div class='grid auto-rows-min grid-rows-auto'>
+  <header class='row-start-1'>
+    <h1 class="mb-2 text-2xl font-sans font-bold">Diagnosis Detail</h1>
+  </header>
 
-  <p>
-    <strong>Icd10:</strong>
-    <%= diagnosis.icd10 %>
-  </p>
+  <div class='row-start-2 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @diagnosis.name, label: 'Name'
+    %>
+  </div>
 
+  <div class='row-start-3 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @diagnosis.icd10, label: 'ICD-10'
+    %>
+  </div>
 </div>

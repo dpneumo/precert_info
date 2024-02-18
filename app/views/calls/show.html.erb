@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @call %>
+<div class="flex flex-col items-center justify-center">
 
-<div>
-  <%= link_to "Edit this call", edit_call_path(@call) %> |
-  <%= link_to "Back to calls", calls_path %>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
+      <%= render 'call' %>
+    </div>
 
-  <%= button_to "Destroy this call", @call, method: :delete %>
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_call_path(@call) %>
+      <%= render "shared/show/back_btn", path: calls_path %>
+      <%= render "shared/show/delete_btn", path: call_path(@call) %>
+    </div>
+  </div>
+
 </div>

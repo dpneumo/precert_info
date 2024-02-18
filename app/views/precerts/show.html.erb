@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @precert %>
+<div class="flex flex-col items-center justify-center">
 
-<div>
-  <%= link_to "Edit this precert", edit_precert_path(@precert) %> |
-  <%= link_to "Back to precerts", precerts_path %>
+  <div class='grid grid-rows-auto'>
+    <div class='row-start-1 max-h-fit'>
+      <%= render 'precert' %>
+    </div>
 
-  <%= button_to "Destroy this precert", @precert, method: :delete %>
+    <div class='row-start-2 h-fit my-3'>
+      <%= render "shared/show/edit_btn", path: edit_precert_path(@precert) %>
+      <%= render "shared/show/back_btn", path: precerts_path %>
+      <%= render "shared/show/delete_btn", path: precert_path(@precert) %>
+    </div>
+  </div>
+
 </div>

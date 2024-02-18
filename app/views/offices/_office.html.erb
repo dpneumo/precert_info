@@ -1,37 +1,36 @@
-<div id="<%= dom_id office %>">
-  <p>
-    <strong>Name:</strong>
-    <%= office.name %>
-  </p>
+<div class='grid auto-rows-min grid-rows-auto'>
+  <header class='row-start-1'>
+    <h1 class="mb-2 text-2xl font-sans font-bold">Office Detail</h1>
+  </header>
 
-  <p>
-    <strong>Street1:</strong>
-    <%= office.street1 %>
-  </p>
+  <div class='row-start-2 h-fit mb-3'>
+    <%= render "shared/show/attrib",
+      attributes: [
+        {attribute: @office.name,  label: 'Name'},
+        {attribute: @office.ph_main, label: 'Phone'},
+      ]
+    %>
+  </div>
 
-  <p>
-    <strong>Street2:</strong>
-    <%= office.street2 %>
-  </p>
+  <div class='row-start-3 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @office.street1, label: 'Street1'
+    %>
+  </div>
 
-  <p>
-    <strong>City:</strong>
-    <%= office.city %>
-  </p>
+  <div class='row-start-4 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @office.street2, label: 'Street2'
+    %>
+  </div>
 
-  <p>
-    <strong>State:</strong>
-    <%= office.state %>
-  </p>
-
-  <p>
-    <strong>Zip:</strong>
-    <%= office.zip %>
-  </p>
-
-  <p>
-    <strong>Ph main:</strong>
-    <%= office.ph_main %>
-  </p>
-
+  <div class='row-start-5 h-fit mb-3'>
+    <%= render "shared/show/attrib",
+      attributes: [
+        {attribute: @office.city,  label: 'City'},
+        {attribute: @office.state, label: 'State'},
+        {attribute: @office.zip,   label: 'Zip'},
+      ]
+    %>
+  </div>
 </div>

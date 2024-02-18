@@ -1,47 +1,53 @@
-<div id="<%= dom_id precert %>">
-  <p>
-    <strong>Patientmrn:</strong>
-    <%= precert.patientMRN %>
-  </p>
+<div class='grid auto-rows-min grid-rows-auto'>
+  <header class='row-start-1'>
+    <h1 class="mb-2 text-2xl font-sans font-bold">Precert Detail</h1>
+  </header>
 
-  <p>
-    <strong>Diagnosis:</strong>
-    <%= precert.diagnosis_id %>
-  </p>
+  <div class='row-start-2 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.patientMRN, label: 'MRN'
+    %>
+  </div>
 
-  <p>
-    <strong>Insurer:</strong>
-    <%= precert.insurer_id %>
-  </p>
+  <div class='row-start-3 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.provider, label: 'Provider'
+    %>
+  </div>
 
-  <p>
-    <strong>Provider:</strong>
-    <%= precert.provider_id %>
-  </p>
+  <div class='row-start-4 h-fit mb-3'>
+    <%= render "shared/show/attrib",
+      attributes: [
+        {attribute: @precert.diagnosis, label: 'Diagnosis'},
+        {attribute: @precert.service, label: 'Service'},
+      ]
+    %>
+  </div>
 
-  <p>
-    <strong>Service:</strong>
-    <%= precert.service_id %>
-  </p>
+  <div class='row-start-5 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.insurer, label: 'Insurer'
+    %>
+  </div>
 
-  <p>
-    <strong>Submitted:</strong>
-    <%= precert.submitted %>
-  </p>
+  <div class='row-start-6 h-fit mb-3'>
+    <%= render "shared/show/attrib",
+      attributes: [
+        {attribute: @precert.fmtd_submit_date, label: 'Submitted'},
+        {attribute: @precert.fmtd_approve_date, label: 'Approved'},
+      ]
+    %>
+  </div>
 
-  <p>
-    <strong>Approved:</strong>
-    <%= precert.approved %>
-  </p>
+  <div class='row-start-7 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.confirmation, label: 'Conf #'
+    %>
+  </div>
 
-  <p>
-    <strong>Confirmation:</strong>
-    <%= precert.confirmation %>
-  </p>
-
-  <p>
-    <strong>Note:</strong>
-    <%= precert.note %>
-  </p>
-
+  <div class='row-start-8 h-fit mb-3'>
+    <%= render "shared/show/note",
+      attribute: @precert.note, label: 'Note'
+    %>
+  </div>
 </div>
