@@ -12,6 +12,14 @@ class Precert < ApplicationRecord
   validates :provider_id,  presence: true
   validates :insurer_id, presence: true
 
+  def self.ndx_header
+    'Precerts'
+  end
+
+  def self.newlink_txt
+    "New Precert"
+  end
+
 #TODO: remove n+1 queries
   def diagnosis
     Diagnosis.find(diagnosis_id).name
@@ -30,11 +38,11 @@ class Precert < ApplicationRecord
   end
 
   def fmtd_submit_date
-    self.submitted.strftime('%D')
+    submitted.strftime('%D')
   end
 
   def fmtd_approve_date
-    self.approved.strftime('%D')
+    approved.strftime('%D')
   end
 
   def note_hint

@@ -1,22 +1,6 @@
-<p style="color: green"><%= notice %></p>
-
-<div class='flex flex-col sm:flex-row items-center justify-center'>
-  <div class='mb-5 mx-2 bg-green-300'>
-    <div class="flex flex-row justify-between">
-      <h1 class="font-sans font-bold text-2xl">Insurers</h1>
-    </div>
-
-    <%= render "shared/table",
-            head: 'head',
-            row:  'row',
-            collection: @insurers %>
-
-    <br>
-    <%== pagy_nav(@pagy) %>
-
-    <hr class="mt-1 border-1 border-gray-700" />
-    <br>
-
-    <%= link_to 'New Insurer', new_insurer_path, class: "text-lg font-sans font-medium link-hover" %>
-  </div>
-</div>
+<%= render 'shared/index',
+    klass: Insurer,
+    collection: @insurers,
+    head: 'head',
+    row:  'row',
+    newlink_path: new_insurer_path %>

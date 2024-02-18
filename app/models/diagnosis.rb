@@ -8,4 +8,12 @@ class Diagnosis < ApplicationRecord
   def self.select_collection
     all.map {|dx| [dx.name, dx.id] }
   end
+
+  def self.ndx_header
+    'Diagnoses'
+  end
+
+  def self.newlink_txt
+    "New Diagnosis"
+  end
 end

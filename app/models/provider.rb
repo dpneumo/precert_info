@@ -10,6 +10,14 @@ class Provider < ApplicationRecord
     all.map {|prov| [prov.name, prov.id] }
   end
 
+  def self.ndx_header
+    'Providers'
+  end
+
+  def self.newlink_txt
+    "New Provider"
+  end
+
   def office
     Office.find(office_id).name
   end

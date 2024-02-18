@@ -8,4 +8,12 @@ class Service < ApplicationRecord
   def self.select_collection
     all.map {|serv| [serv.name, serv.id] }
   end
+
+  def self.ndx_header
+    'Services'
+  end
+
+  def self.newlink_txt
+    "New Service"
+  end
 end

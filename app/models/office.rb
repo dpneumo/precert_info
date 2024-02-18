@@ -11,7 +11,15 @@ class Office < ApplicationRecord
     all.map {|off| [off.name, off.id] }
   end
 
+  def self.ndx_header
+    'Offices'
+  end
+
+  def self.newlink_txt
+    "New Office"
+  end
+
   def address
-  	"#{self.street1}, #{self.street2}, #{self.city}, #{self.state}, #{self.zip}"
+  	"#{street1}, #{street2}, #{city}, #{state}, #{zip}"
   end
 end

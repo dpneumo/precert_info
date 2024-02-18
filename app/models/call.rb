@@ -4,13 +4,21 @@ class Call < ApplicationRecord
   validates :call_time, presence: true
   validates :duration,  presence: true
 
+  def self.ndx_header
+    'Calls'
+  end
+
+  def self.newlink_txt
+    "New Call"
+  end
+
   def precert
     pcert = Precert.find(precert_id)
     "#{pcert.patientMRN}-#{pcert.service}-#{pcert.fmtd_submit_date}"
   end
 
   def time_of_call
-    self.call_time.strftime('%R')
+    call_time.strftime('%R')
   end
 
   def note_hint
