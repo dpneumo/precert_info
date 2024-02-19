@@ -7,10 +7,18 @@ class Precert < ApplicationRecord
   belongs_to :service
 
   validates :patientMRN, presence: true
-  validates :service_id,  presence: true
+
+  validates :service_id, presence: true
+  validates :service_id, numericality: {only_integer: true} 
+
   validates :diagnosis_id, presence: true
-  validates :provider_id,  presence: true
+  validates :diagnosis_id, numericality: {only_integer: true} 
+
+  validates :provider_id, presence: true
+  validates :provider_id, numericality: {only_integer: true} 
+  
   validates :insurer_id, presence: true
+  validates :insurer_id, numericality: {only_integer: true} 
 
   def self.ndx_header
     'Precerts'

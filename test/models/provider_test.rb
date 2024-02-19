@@ -5,13 +5,15 @@ class ProviderTest < ActiveSupport::TestCase
     @prov = providers(:one)
   end
 
-  test 'name is not null' do
+  test 'name cannot be nil' do
     @prov.name = nil
     refute @prov.save, 'An provider without a name was saved'
   end
 
   test 'office_id is not null' do
     @prov.office_id = nil
-    refute @prov.save, 'An provider without a office_id was saved'
+    assert_raises(ActiveRecord::RecordNotFound) do
+      @prov.save  
+    end
   end
 end

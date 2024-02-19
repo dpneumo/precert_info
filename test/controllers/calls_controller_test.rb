@@ -16,8 +16,9 @@ class CallsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create call" do
+    ctime = Time.now; cdur = 10
     assert_difference("Call.count") do
-      post calls_url, params: { call: { call_time: @call.call_time, duration: @call.duration, note: @call.note, precert_id: @call.precert_id } }
+      post calls_url, params: { call: { call_time: ctime, duration: cdur, note: 'Wow!', precert_id: @call.precert_id } }
     end
 
     assert_redirected_to call_url(Call.last)
