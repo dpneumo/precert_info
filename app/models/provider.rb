@@ -3,7 +3,6 @@ class Provider < ApplicationRecord
   belongs_to :office
 
   validates :name, presence: true
-  validates :office_id,  presence: true
 
 #TODO: Cache this?
   def self.select_collection
