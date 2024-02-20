@@ -22,39 +22,26 @@ class ServicesController < ApplicationController
   # POST /services or /services.json
   def create
     @service = Service.new(service_params)
-
-    respond_to do |format|
-      if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
-        format.json { render :show, status: :created, location: @service }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+    if @service.save
+      redirect_to service_url(@service), notice: "Service was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /services/1 or /services/1.json
-  def update
-    respond_to do |format|
-      if @service.update(service_params)
-        format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
-        format.json { render :show, status: :ok, location: @service }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
-      end
+  def update    
+    if @service.update(service_params)
+      redirect_to service_url(@service), notice: "Service was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /services/1 or /services/1.json
   def destroy
     @service.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to services_url, notice: "Service was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to services_url, notice: "Service was successfully destroyed."
   end
 
   private

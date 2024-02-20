@@ -22,39 +22,26 @@ class InsurersController < ApplicationController
   # POST /insurers or /insurers.json
   def create
     @insurer = Insurer.new(insurer_params)
-
-    respond_to do |format|
-      if @insurer.save
-        format.html { redirect_to insurer_url(@insurer), notice: "Insurer was successfully created." }
-        format.json { render :show, status: :created, location: @insurer }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @insurer.errors, status: :unprocessable_entity }
-      end
+    if @insurer.save
+      redirect_to insurer_url(@insurer), notice: "Insurer was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /insurers/1 or /insurers/1.json
-  def update
-    respond_to do |format|
-      if @insurer.update(insurer_params)
-        format.html { redirect_to insurer_url(@insurer), notice: "Insurer was successfully updated." }
-        format.json { render :show, status: :ok, location: @insurer }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @insurer.errors, status: :unprocessable_entity }
-      end
+  def update    
+    if @insurer.update(insurer_params)
+      redirect_to insurer_url(@insurer), notice: "Insurer was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /insurers/1 or /insurers/1.json
   def destroy
     @insurer.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to insurers_url, notice: "Insurer was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to insurers_url, notice: "Insurer was successfully destroyed."
   end
 
   private

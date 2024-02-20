@@ -22,39 +22,26 @@ class ProvidersController < ApplicationController
   # POST /providers or /providers.json
   def create
     @provider = Provider.new(provider_params)
-
-    respond_to do |format|
-      if @provider.save
-        format.html { redirect_to provider_url(@provider), notice: "Provider was successfully created." }
-        format.json { render :show, status: :created, location: @provider }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
+    if @provider.save
+      redirect_to provider_url(@provider), notice: "Provider was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /providers/1 or /providers/1.json
   def update
-    respond_to do |format|
-      if @provider.update(provider_params)
-        format.html { redirect_to provider_url(@provider), notice: "Provider was successfully updated." }
-        format.json { render :show, status: :ok, location: @provider }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
+    if @provider.update(provider_params)
+      redirect_to provider_url(@provider), notice: "Provider was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /providers/1 or /providers/1.json
   def destroy
     @provider.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to providers_url, notice: "Provider was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to providers_url, notice: "Provider was successfully destroyed."
   end
 
   private
