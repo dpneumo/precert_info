@@ -22,39 +22,26 @@ class DiagnosesController < ApplicationController
   # POST /diagnoses or /diagnoses.json
   def create
     @diagnosis = Diagnosis.new(diagnosis_params)
-
-    respond_to do |format|
-      if @diagnosis.save
-        format.html { redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully created." }
-        format.json { render :show, status: :created, location: @diagnosis }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @diagnosis.errors, status: :unprocessable_entity }
-      end
+    if @diagnosis.save
+      redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /diagnoses/1 or /diagnoses/1.json
-  def update
-    respond_to do |format|
-      if @diagnosis.update(diagnosis_params)
-        format.html { redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully updated." }
-        format.json { render :show, status: :ok, location: @diagnosis }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @diagnosis.errors, status: :unprocessable_entity }
-      end
+  def update  
+    if @diagnosis.update(diagnosis_params)
+      redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /diagnoses/1 or /diagnoses/1.json
   def destroy
     @diagnosis.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to diagnoses_url, notice: "Diagnosis was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to diagnoses_url, notice: "Diagnosis was successfully destroyed."
   end
 
   private

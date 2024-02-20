@@ -22,39 +22,26 @@ class PrecertsController < ApplicationController
   # POST /precerts or /precerts.json
   def create
     @precert = Precert.new(precert_params)
-
-    respond_to do |format|
-      if @precert.save
-        format.html { redirect_to precert_url(@precert), notice: "Precert was successfully created." }
-        format.json { render :show, status: :created, location: @precert }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @precert.errors, status: :unprocessable_entity }
-      end
+    if @precert.save
+      redirect_to precert_url(@precert), notice: "Precert was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /precerts/1 or /precerts/1.json
-  def update
-    respond_to do |format|
-      if @precert.update(precert_params)
-        format.html { redirect_to precert_url(@precert), notice: "Precert was successfully updated." }
-        format.json { render :show, status: :ok, location: @precert }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @precert.errors, status: :unprocessable_entity }
-      end
+  def update  
+    if @precert.update(precert_params)
+      redirect_to precert_url(@precert), notice: "Precert was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /precerts/1 or /precerts/1.json
   def destroy
     @precert.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to precerts_url, notice: "Precert was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to precerts_url, notice: "Precert was successfully destroyed."
   end
 
   private

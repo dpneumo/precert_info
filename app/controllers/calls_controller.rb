@@ -22,39 +22,26 @@ class CallsController < ApplicationController
   # POST /calls or /calls.json
   def create
     @call = Call.new(call_params)
-
-    respond_to do |format|
-      if @call.save
-        format.html { redirect_to call_url(@call), notice: "Call was successfully created." }
-        format.json { render :show, status: :created, location: @call }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @call.errors, status: :unprocessable_entity }
-      end
+    if @call.save
+      redirect_to call_url(@call), notice: "Call was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /calls/1 or /calls/1.json
-  def update
-    respond_to do |format|
-      if @call.update(call_params)
-        format.html { redirect_to call_url(@call), notice: "Call was successfully updated." }
-        format.json { render :show, status: :ok, location: @call }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @call.errors, status: :unprocessable_entity }
-      end
+  def update  
+    if @call.update(call_params)
+      redirect_to call_url(@call), notice: "Call was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /calls/1 or /calls/1.json
   def destroy
     @call.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to calls_url, notice: "Call was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to calls_url, notice: "Call was successfully destroyed."
   end
 
   private

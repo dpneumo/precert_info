@@ -22,39 +22,26 @@ class OfficesController < ApplicationController
   # POST /offices or /offices.json
   def create
     @office = Office.new(office_params)
-
-    respond_to do |format|
-      if @office.save
-        format.html { redirect_to office_url(@office), notice: "Office was successfully created." }
-        format.json { render :show, status: :created, location: @office }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @office.errors, status: :unprocessable_entity }
-      end
+    if @office.save
+      redirect_to office_url(@office), notice: "Office was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /offices/1 or /offices/1.json
   def update
-    respond_to do |format|
-      if @office.update(office_params)
-        format.html { redirect_to office_url(@office), notice: "Office was successfully updated." }
-        format.json { render :show, status: :ok, location: @office }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @office.errors, status: :unprocessable_entity }
-      end
+    if @office.update(office_params)
+      redirect_to office_url(@office), notice: "Office was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /offices/1 or /offices/1.json
   def destroy
     @office.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to offices_url, notice: "Office was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to offices_url, notice: "Office was successfully destroyed."
   end
 
   private
