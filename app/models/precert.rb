@@ -16,23 +16,6 @@ class Precert < ApplicationRecord
     "New Precert"
   end
 
-#TODO: remove n+1 queries
-  def diagnosis
-    Diagnosis.find(diagnosis_id).name
-  end
-
-  def insurer
-    Insurer.find(insurer_id).name
-  end
-
-  def provider
-    Provider.find(provider_id).name
-  end
-
-  def service
-    Service.find(service_id).name
-  end
-
   def fmtd_submit_date
     submitted.strftime('%D')
   end
