@@ -1,9 +1,7 @@
-<h1>New provider</h1>
-
-<%= render "form", provider: @provider %>
-
-<br>
-
-<div>
-  <%= link_to "Back to providers", providers_path %>
+<div class="flex flex-col items-center justify-center">
+  <h1 class="text-2xl font-sans font-extrabold">New Provider</h1>
+  <%= render "shared/form",
+              mdl: @provider,
+              attribs: 'providers/attribs',
+              cancel_path: providers_path %>
 </div>

@@ -1,9 +1,7 @@
-<h1>New precert</h1>
-
-<%= render "form", precert: @precert %>
-
-<br>
-
-<div>
-  <%= link_to "Back to precerts", precerts_path %>
+<div class="flex flex-col items-center justify-center">
+  <h1 class="text-2xl font-sans font-extrabold">New Precert</h1>
+  <%= render "shared/form",
+              mdl: @precert,
+              attribs: 'precerts/attribs',
+              cancel_path: precerts_path %>
 </div>

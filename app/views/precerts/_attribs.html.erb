@@ -1,0 +1,39 @@
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/text_field', attrib: :patientMRN, form: form %>
+</div>
+
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/select_field', attrib: :provider_id, form: form,
+                  label_txt: 'Providers',
+                  collection: Provider.select_collection,
+                  include_blank: true,
+                  selected: mdl.provider_id %>
+  <%= render 'shared/form/select_field', attrib: :diagnosis_id, form: form,
+                  label_txt: 'Diagnoses',
+                  collection: Diagnosis.select_collection,
+                  include_blank: true,
+                  selected: mdl.diagnosis_id %>
+  <%= render 'shared/form/select_field', attrib: :service_id, form: form,
+                  label_txt: 'Services',
+                  collection: Service.select_collection,
+                  include_blank: true,
+                  selected: mdl.service_id %>
+</div>
+
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/select_field', attrib: :insurer_id, form: form,
+                  label_txt: 'Insurers',
+                  collection: Insurer.select_collection,
+                  include_blank: true,
+                  selected: mdl.insurer_id %>
+  <%= render 'shared/form/date_field', attrib: :submitted, form: form %>
+  <%= render 'shared/form/date_field', attrib: :approved, form: form %>
+</div>
+
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/text_field', attrib: :confirmation, form: form %>
+</div>
+
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/text_area', attrib: :note, form: form %>
+</div>
