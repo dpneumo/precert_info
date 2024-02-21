@@ -16,8 +16,4 @@ class Provider < ApplicationRecord
   def self.newlink_txt
     "New Provider"
   end
-
-  def office
-    Office.find(office_id).name
-  end
 end

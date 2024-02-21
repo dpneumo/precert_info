@@ -12,7 +12,7 @@ class Call < ApplicationRecord
     "New Call"
   end
 
-  def precert
+  def precert_text
     pcert = Precert.find(precert_id)
     "#{pcert.patientMRN}-#{pcert.service}-#{pcert.fmtd_submit_date}"
   end
