@@ -43,7 +43,9 @@
 
   <div>
     <%= form.label :ph_main, style: "display: block" %>
-    <%= form.text_field :ph_main %>
+    <%= form.telephone_field :ph_main,
+                              placeholder: "123-456-7890",
+                              pattern: Office.ph_pattern %>
   </div>
 
   <div>

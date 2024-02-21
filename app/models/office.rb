@@ -19,6 +19,10 @@ class Office < ApplicationRecord
     "New Office"
   end
 
+  def self.ph_pattern
+    '[0-9]{3}-[0-9]{3}-[0-9]{4}'
+  end
+
   def address
   	"#{street1}, #{street2}, #{city}, #{state}, #{zip}"
   end
