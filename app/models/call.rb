@@ -18,6 +18,7 @@ class Call < ApplicationRecord
   end
 
   def time_of_call
+    return '' unless call_time  
     call_time.strftime('%R')
   end
 
