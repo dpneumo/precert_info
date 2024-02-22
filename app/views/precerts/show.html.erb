@@ -12,6 +12,14 @@
       <%= render "shared/show/back_btn", path: precerts_path %>
       <%= render "shared/show/delete_btn", path: precert_path(@precert) %>
     </div>
+
+    <div data-controller="calls">
+      <button data-action="calls#showAll">Show Older Calls</button>
+
+      <div data-target="calls.show" style="visibility:hidden">
+        <%= render 'precerts/related_calls', precert: @precert %>
+      </div>
+    </div>
   </div>
 
 </div>

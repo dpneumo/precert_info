@@ -21,7 +21,7 @@ class CallsController < ApplicationController
 
   # POST /calls or /calls.json
   def create
-    @call = Call.new(call_params)
+    @call = @precerts.calls.create(call_params)
     if @call.save
       redirect_to call_url(@call), notice: "Call was successfully created."
     else
@@ -47,7 +47,7 @@ class CallsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_call
-      @call = Call.find(params[:id])
+      @call = @precert.calls.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

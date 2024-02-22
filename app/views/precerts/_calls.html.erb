@@ -1,0 +1,12 @@
+<div data-controller="calls">
+  <%= form_with model: [@precert, @call],
+                data: { action: "calls#addCallData" } do |form| %>
+    <%= form.text_field :call_time, data: { target: "call.call_time" } %>
+    <%= form.text_field :duration, data: { target: "call.duration" } %>
+    <%= form.text_area :note, data: { target: "call.note" } %>
+    <br>
+    <%= form.submit %>
+  <% end %>
+  <ul data-target="calls.add">
+  </ul>
+</div>

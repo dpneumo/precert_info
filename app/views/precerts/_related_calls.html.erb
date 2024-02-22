@@ -1,0 +1,8 @@
+<% for call in @calls  %>
+  <ul>
+    <li class="call"><%= call.call_time %></li>
+    <li class="call"><%= call.duration %></li>
+    <li class="call"><%= call.note %></li>
+    <li class="call"><%= button_tag "Remove Call", data: { controller: "calls", action: "calls#remove" } %>
+  </ul>
+<% end %>
