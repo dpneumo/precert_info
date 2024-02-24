@@ -8,9 +8,9 @@
     </div>
 
     <div class='row-start-2 h-fit my-3'>
-      <%= render "shared/show/edit_btn", path: edit_call_path(@call) %>
-      <%= render "shared/show/back_btn", path: calls_path %>
-      <%= render "shared/show/delete_btn", path: call_path(@call) %>
+      <%= render "shared/show/edit_btn", path: edit_precert_call_path(@precert.id,@call.id) %>
+      <%= render "shared/show/back_btn", path: precert_path(@precert.id) %>
+      <%= render "shared/show/delete_btn", path: precert_call_path(@precert.id,@call.id) %>
     </div>
   </div>
 

@@ -26,4 +26,8 @@ class Call < ApplicationRecord
     return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
   end
+
+  def synopsis
+    "#{call_time} - #{duration} min: #{note_hint}"
+  end
 end

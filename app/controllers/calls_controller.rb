@@ -13,6 +13,7 @@ class CallsController < ApplicationController
   # GET /calls/new
   def new
     @call = Call.new
+    @call.precert_id = params[:precert_id]
   end
 
   # GET /calls/1/edit
@@ -21,9 +22,9 @@ class CallsController < ApplicationController
 
   # POST /calls or /calls.json
   def create
-    @call = @precerts.calls.create(call_params)
+    @call = Call.create(call_params)
     if @call.save
-      redirect_to call_url(@call), notice: "Call was successfully created."
+      redirect_to precert_path(@call.precert_id), notice: "Call was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +33,7 @@ class CallsController < ApplicationController
   # PATCH/PUT /calls/1 or /calls/1.json
   def update  
     if @call.update(call_params)
-      redirect_to call_url(@call), notice: "Call was successfully updated."
+      redirect_to precert_path(@call.precert_id), notice: "Call was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,14 +41,15 @@ class CallsController < ApplicationController
 
   # DELETE /calls/1 or /calls/1.json
   def destroy
+    precert_id = @call.precert_id
     @call.destroy!
-    redirect_to calls_url, notice: "Call was successfully destroyed."
+    redirect_to precert_path(precert_id), notice: "Call was successfully destroyed."
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_call
-      @call = @precert.calls.find(params[:id])
+      @call = Call.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
