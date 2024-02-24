@@ -2,12 +2,12 @@
 
 one:
   precert: one
-  call_time: 2024-02-11 11:45:36
+  contact_time: 2024-02-11 11:45:36
   duration: 10
   note: Easy
 
 two:
   precert: two
-  call_time: 2024-02-11 11:45:36
+  contact_time: 2024-02-11 11:45:36
   duration: 60
   note: Hard

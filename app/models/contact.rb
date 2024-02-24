@@ -1,15 +1,15 @@
-class Call < ApplicationRecord
+class Contact < ApplicationRecord
   belongs_to :precert
 
-  validates :call_time, presence: true
+  validates :contact_time, presence: true
   validates :duration,  presence: true
 
   def self.ndx_header
-    'Calls'
+    'Contacts'
   end
 
   def self.newlink_txt
-    "New Call"
+    "New Contact"
   end
 
   def precert_text
@@ -17,9 +17,9 @@ class Call < ApplicationRecord
     "#{pcert.patientMRN}-#{pcert.service}-#{pcert.fmtd_submit_date}"
   end
 
-  def time_of_call
-    return '' unless call_time  
-    call_time.strftime('%R')
+  def time_of_contact
+    return '' unless contact_time  
+    contact_time.strftime('%R')
   end
 
   def note_hint
@@ -28,6 +28,6 @@ class Call < ApplicationRecord
   end
 
   def synopsis
-    "#{call_time} - #{duration} min: #{note_hint}"
+    "#{contact_time} - #{duration} min: #{note_hint}"
   end
 end

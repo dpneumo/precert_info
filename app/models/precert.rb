@@ -1,5 +1,5 @@
 class Precert < ApplicationRecord
-  has_many :calls, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   belongs_to :diagnosis
   belongs_to :insurer

@@ -8,8 +8,8 @@ class PrecertsController < ApplicationController
 
   # GET /precerts/1 or /precerts/1.json
   def show
-    @calls = @precert.calls
-    @call =  @precert.calls.build
+    @contacts = @precert.contacts
+    @contact =  @precert.contacts.build
   end
 
   # GET /precerts/new

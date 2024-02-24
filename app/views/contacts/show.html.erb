@@ -4,13 +4,13 @@
 
   <div class='grid grid-rows-auto'>
     <div class='row-start-1 max-h-fit'>
-      <%= render 'call' %>
+      <%= render 'contact' %>
     </div>
 
     <div class='row-start-2 h-fit my-3'>
-      <%= render "shared/show/edit_btn", path: edit_precert_call_path(@precert.id,@call.id) %>
+      <%= render "shared/show/edit_btn", path: edit_precert_contact_path(@precert.id,@contact.id) %>
       <%= render "shared/show/back_btn", path: precert_path(@precert.id) %>
-      <%= render "shared/show/delete_btn", path: precert_call_path(@precert.id,@call.id) %>
+      <%= render "shared/show/delete_btn", path: precert_contact_path(@precert.id,@contact.id) %>
     </div>
   </div>
 

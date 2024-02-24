@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :precerts do 
-    resources :calls 
+    resources :contacts 
   end
   resources :insurers
   resources :services

@@ -11,14 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
-  create_table "calls", force: :cascade do |t|
+  create_table "contacts", force: :cascade do |t|
     t.integer "precert_id", null: false
-    t.datetime "call_time"
+    t.datetime "contact_time"
     t.integer "duration"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["precert_id"], name: "index_calls_on_precert_id"
+    t.index ["precert_id"], name: "index_contacts_on_precert_id"
   end
 
   create_table "diagnoses", force: :cascade do |t|
@@ -86,5 +86,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
     t.index ["servtype"], name: "index_services_on_servtype"
   end
 
-  add_foreign_key "calls", "precerts"
+  add_foreign_key "contacts", "precerts"
 end

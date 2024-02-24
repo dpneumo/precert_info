@@ -1,8 +1,8 @@
-class CreateCalls < ActiveRecord::Migration[7.1]
+class CreateContacts < ActiveRecord::Migration[7.1]
   def change
-    create_table :calls do |t|
+    create_table :contacts do |t|
       t.references :precert, null: false, foreign_key: true
-      t.datetime :call_time
+      t.datetime :contact_time
       t.integer :duration
       t.text :note
 

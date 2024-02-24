@@ -11,14 +11,14 @@
       <%= render "shared/show/edit_btn", path: edit_precert_path(@precert) %>
       <%= render "shared/show/back_btn", path: precerts_path %>
       <%= render "shared/show/delete_btn", path: precert_path(@precert) %>
-      <%= render "shared/show/new_related_btn", path: new_precert_call_path(@precert, @call) %>
+      <%= render "shared/show/new_related_btn", path: new_precert_contact_path(@precert, @contact) %>
     </div>
 
-    <div data-controller="calls">
-      <button data-action="calls#showRelated">Show Calls</button>
+    <div data-controller="contacts">
+      <button data-action="contacts#showRelated">Show Contacts</button>
 
-      <div data-target="calls.show" style="visibility:hidden">
-        <%= render 'precerts/related_calls', precert: @precert, calls: @calls %>
+      <div data-target="contacts.show" style="visibility:hidden">
+        <%= render 'precerts/related_contacts', precert: @precert, contacts: @contacts %>
       </div>
     </div>
   </div>
