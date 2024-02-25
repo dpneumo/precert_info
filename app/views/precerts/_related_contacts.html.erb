@@ -1,0 +1,17 @@
+<div class='text-xl font-bold'>Contacts</div>
+<ul class='list-disc'>
+  <% contacts.each do |contact|  %>
+    <% next unless contact.id %>
+    <li><%= contact.synopsis %>
+        &nbsp&nbsp
+        <%= link_to 'Edit',
+                    edit_precert_contact_path(contact.precert, contact),
+                    class: 'link-hover' %>
+        &nbsp&nbsp
+        <%= link_to 'Delete',
+                    precert_contact_path(contact.precert, contact),
+                    data: { turbo_method: :delete },
+                    class: 'link-hover' %>
+    </li>
+  <% end %>
+</ul>

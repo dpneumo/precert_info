@@ -1,7 +1,4 @@
 <div class="flex flex-col items-center justify-center">
   <h1 class="text-2xl font-sans font-extrabold">Edit Contact</h1>
-  <%= render "shared/form",
-              mdl: @contact,
-              attribs: 'contacts/attribs',
-              cancel_path: precert_path(@precert.id) %>
+  <%= render "form" %>
 </div>

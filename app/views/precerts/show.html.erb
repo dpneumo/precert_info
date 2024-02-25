@@ -1,8 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<div class="flex flex-col items-center justify-center">
-
-  <div class='grid grid-rows-auto'>
+<div class="grid grid-col justify-center mx-10">
+  <div class='col-start-1 grid grid-rows-auto -mx-10'>
     <div class='row-start-1 max-h-fit'>
       <%= render 'precert' %>
     </div>
@@ -11,16 +10,18 @@
       <%= render "shared/show/edit_btn", path: edit_precert_path(@precert) %>
       <%= render "shared/show/back_btn", path: precerts_path %>
       <%= render "shared/show/delete_btn", path: precert_path(@precert) %>
-      <%= render "shared/show/new_related_btn", path: new_precert_contact_path(@precert, @contact) %>
     </div>
 
-    <div data-controller="contacts">
-      <button data-action="contacts#showRelated">Show Contacts</button>
-
-      <div data-target="contacts.show" style="visibility:hidden">
-        <%= render 'precerts/related_contacts', precert: @precert, contacts: @contacts %>
-      </div>
+    <div class='row-start-3 h-fit -ml-4 mt-5'>
+      <%= render partial: 'contacts/form' %>
     </div>
   </div>
 
+  <div class='col-start-2 grid grid-rows-auto -mx-10'>
+    <div data-controller="contacts">
+      <div data-target="contacts.show" style="visibility:visible">
+        <%= render 'precerts/related_contacts', contacts: @precert.contacts %>
+      </div>
+    </div>
+  </div>
 </div>

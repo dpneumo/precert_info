@@ -17,9 +17,14 @@ class Contact < ApplicationRecord
     "#{pcert.patientMRN}-#{pcert.service}-#{pcert.fmtd_submit_date}"
   end
 
+  def date_of_contact
+    return '' unless contact_date  
+    contact_date.strftime('%D')
+  end
+
   def time_of_contact
     return '' unless contact_time  
-    contact_time.strftime('%R')
+    contact_time.strftime('%l:%M %p')
   end
 
   def note_hint
@@ -28,6 +33,6 @@ class Contact < ApplicationRecord
   end
 
   def synopsis
-    "#{contact_time} - #{duration} min: #{note_hint}"
+    "ID: #{id}: #{date_of_contact} #{time_of_contact} - #{duration} min: #{note_hint}"
   end
 end

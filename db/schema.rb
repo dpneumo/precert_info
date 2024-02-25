@@ -13,7 +13,8 @@
 ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
   create_table "contacts", force: :cascade do |t|
     t.integer "precert_id", null: false
-    t.datetime "contact_time"
+    t.datetime "contact_date", null: false
+    t.datetime "contact_time", null: false
     t.integer "duration"
     t.text "note"
     t.datetime "created_at", null: false

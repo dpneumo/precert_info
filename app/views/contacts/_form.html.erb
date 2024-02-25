@@ -1,0 +1,30 @@
+<%= form_with(model: [@contact.precert, @contact], local: true) do |form| %>
+	<div class="flex flex-col md:flex-row">
+	  <div class='col-start-0'>
+	  	<%= render 'shared/form/date_field', attrib: :contact_date, form: form %>
+	  </div>
+	  <div class='col-start-1'>
+	    <%= render 'shared/form/time_field', attrib: :contact_time, form: form %>
+	  </div>
+	  <div class='col-start-2'>
+	  	<%= render 'shared/form/number_field', attrib: :duration, form: form %>
+		</div>
+	</div>
+
+	<div class="flex flex-col md:flex-row">
+		<div class='col-start-0 col-span-3'>
+	    <%= render 'shared/form/text_area',
+	    				attrib: :note,
+	    				cols: 36,
+	    				rows: 1,
+	    				form: form %>
+	  </div>
+	</div>
+
+	<%= form.hidden_field :precert_id %>
+
+	<div class="flex flex-col md:flex-row">
+		<%= form.submit 'Save',
+            class: "mx-4 submit-button font-sans" %>
+	</div>
+<% end %>

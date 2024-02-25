@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :precerts do 
-    resources :contacts 
+    resources :contacts, except: [:index, :new] 
   end
   resources :insurers
   resources :services
