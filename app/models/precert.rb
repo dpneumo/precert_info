@@ -8,7 +8,16 @@ class Precert < ApplicationRecord
 
   validates :patientMRN, presence: true
 
-  
+  scope :is_open, -> { where(closed: [nil]) }
+  scope :is_closed, -> { where.not(closed: [nil]) }
+  scope :is_approved, -> { where.not(approval: [nil]) }
+  scope :is_unapproved, -> { where(approval: [nil]) }
+  scope :is_submitted, -> { where.not(submitted: [nil]) }
+  scope :is_unsubmitted, -> { where(submitted: [nil]) }
+  scope :serv, ->(id) { where('service_id == ?', id) }
+  scope :dx, ->(id) { where('diagnosis_id == ?', id) }
+  scope :prov, ->(id) { where('provider_id == ?', id) }
+  scope :ins, ->(id) { where('service_id == ?', id) }
 
   def self.ndx_header
     'Precerts'
