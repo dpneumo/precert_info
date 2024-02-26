@@ -34,7 +34,7 @@
     <%= render "shared/show/attribs",
       attributes: [
         {attribute: @precert.fmtd_submit_date, label: 'Submitted'},
-        {attribute: @precert.fmtd_approve_date, label: 'Approved'},
+        {attribute: @precert.fmtd_approval_date, label: 'Approved'},
       ]
     %>
   </div>
@@ -46,6 +46,12 @@
   </div>
 
   <div class='row-start-8 h-fit mb-3'>
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.fmtd_closed_date, label: 'Closed'
+    %>
+  </div>
+
+  <div class='row-start-9 h-fit mb-3'>
     <%= render "shared/show/note",
       attribute: @precert.note, label: 'Note'
     %>

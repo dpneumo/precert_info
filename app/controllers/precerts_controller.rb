@@ -53,6 +53,6 @@ class PrecertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def precert_params
-      params.require(:precert).permit(:patientMRN, :service_id, :diagnosis_id, :provider_id, :insurer_id, :submitted, :approved, :confirmation, :note)
+      params.require(:precert).permit(:patientMRN, :service_id, :diagnosis_id, :provider_id, :insurer_id, :submitted, :approved, :approval, :confirmation, :closed, :note)
     end
 end

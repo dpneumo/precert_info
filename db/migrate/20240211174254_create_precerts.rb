@@ -7,8 +7,9 @@ class CreatePrecerts < ActiveRecord::Migration[7.1]
       t.references :provider, null: true
       t.references :insurer, null: true
       t.datetime :submitted
-      t.datetime :approved
+      t.datetime :approval
       t.string :confirmation
+      t.datetime :closed
       t.text :note
 
       t.timestamps

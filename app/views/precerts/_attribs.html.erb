@@ -4,17 +4,17 @@
 
 <div class="flex flex-col md:flex-row">
   <%= render 'shared/form/select_field', attrib: :provider_id, form: form,
-                  label_txt: 'Providers',
+                  label_txt: 'Provider',
                   collection: Provider.select_collection,
                   include_blank: true,
                   selected: mdl.provider_id %>
   <%= render 'shared/form/select_field', attrib: :diagnosis_id, form: form,
-                  label_txt: 'Diagnoses',
+                  label_txt: 'Diagnosis',
                   collection: Diagnosis.select_collection,
                   include_blank: true,
                   selected: mdl.diagnosis_id %>
   <%= render 'shared/form/select_field', attrib: :service_id, form: form,
-                  label_txt: 'Services',
+                  label_txt: 'Service',
                   collection: Service.select_collection,
                   include_blank: true,
                   selected: mdl.service_id %>
@@ -22,16 +22,20 @@
 
 <div class="flex flex-col md:flex-row">
   <%= render 'shared/form/select_field', attrib: :insurer_id, form: form,
-                  label_txt: 'Insurers',
+                  label_txt: 'Insurer',
                   collection: Insurer.select_collection,
                   include_blank: true,
                   selected: mdl.insurer_id %>
   <%= render 'shared/form/date_field', attrib: :submitted, form: form %>
-  <%= render 'shared/form/date_field', attrib: :approved, form: form %>
 </div>
 
 <div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/date_field', attrib: :approval, form: form %>
   <%= render 'shared/form/text_field', attrib: :confirmation, form: form %>
+</div>
+
+<div class="flex flex-col md:flex-row">
+  <%= render 'shared/form/date_field', attrib: :closed, form: form %>
 </div>
 
 <div class="flex flex-col md:flex-row">

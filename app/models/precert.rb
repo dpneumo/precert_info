@@ -8,6 +8,8 @@ class Precert < ApplicationRecord
 
   validates :patientMRN, presence: true
 
+  
+
   def self.ndx_header
     'Precerts'
   end
@@ -21,9 +23,14 @@ class Precert < ApplicationRecord
     submitted.strftime('%D')
   end
 
-  def fmtd_approve_date
-    return '' unless approved  
-    approved.strftime('%D')
+  def fmtd_approval_date
+    return '' unless approval  
+    approval.strftime('%D')
+  end
+
+  def fmtd_closed_date
+    return '' unless closed  
+    closed.strftime('%D')
   end
 
   def confirm_hint

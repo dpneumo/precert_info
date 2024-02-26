@@ -57,8 +57,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
     t.integer "provider_id"
     t.integer "insurer_id"
     t.datetime "submitted"
-    t.datetime "approved"
+    t.datetime "approval"
     t.string "confirmation"
+    t.datetime "closed"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
