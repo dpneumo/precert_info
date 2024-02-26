@@ -1,4 +1,6 @@
 class Precert < ApplicationRecord
+  include Filterable
+  
   has_many :contacts, dependent: :destroy
   has_many :peer2peers, dependent: :destroy
 
