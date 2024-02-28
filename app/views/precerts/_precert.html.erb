@@ -40,14 +40,11 @@
   </div>
 
   <div class='row-start-7 h-fit mb-3'>
-    <%= render "shared/show/attrib_wide",
-      attribute: @precert.confirmation, label: 'Conf #'
-    %>
-  </div>
-
-  <div class='row-start-8 h-fit mb-3'>
-    <%= render "shared/show/attrib_wide",
-      attribute: @precert.fmtd_closed_date, label: 'Closed'
+    <%= render "shared/show/attribs",
+      attributes: [
+        {attribute: @precert.confirmation, label: 'Conf #'},
+        {attribute: @precert.fmtd_closed_date, label: 'Closed'},
+      ]
     %>
   </div>
 

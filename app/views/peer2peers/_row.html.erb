@@ -1,0 +1,11 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad td-base'><%= p2p.scheduled_datetime %></td>
+    <td class='td-pad td-base'><%= p2p.peer %></td>
+    <td class='td-pad td-base'><%= p2p.accept_yes_no %></td>
+    <td class='td-pad td-base'><%= p2p.code %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= p2p.note_hint %></td>
+    <td scope="col" class="th-pad th-base">
+      <%= link_to 'Edit',
+            edit_precert_peer2peer_path(p2p.precert, p2p),
+            class: 'link-hover' %> </td>
+  </tr>

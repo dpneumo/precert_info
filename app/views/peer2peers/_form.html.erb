@@ -1,0 +1,36 @@
+<%= form_with(model: [@peer2peer.precert, @peer2peer], local: true) do |form| %>
+  <%= form.hidden_field :precert_id %>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/datetime_field', attrib: :scheduled, max: 1.year.from_now , seconds: false, form: form %>
+    </div>
+    <div class='col-start-1'>
+      <%= render 'shared/form/text_field', attrib: :peer, form: form %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/check_box_field', attrib: :accept, form: form %>
+    </div>
+    <div class='col-start-1'>
+      <%= render 'shared/form/text_field', attrib: :code, form: form %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/text_area',
+              attrib: :note,
+              cols: 33,
+              rows: 1,
+              form: form %>
+    </div>
+    <div class='col-start-1'>
+      <%= form.submit 'Save',
+              class: "mx-4 submit-button font-sans" %>
+    </div>
+  </div>
+
+<% end %>

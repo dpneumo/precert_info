@@ -1,4 +1,6 @@
 <%= form_with(model: [@contact.precert, @contact], local: true) do |form| %>
+	<%= form.hidden_field :precert_id %>
+
 	<div class="flex flex-col md:flex-row">
 	  <div class='col-start-0'>
 	  	<%= render 'shared/form/date_field', attrib: :contact_date, form: form %>
@@ -12,19 +14,17 @@
 	</div>
 
 	<div class="flex flex-col md:flex-row">
-		<div class='col-start-0 col-span-3'>
+		<div class='col-start-0'>
 	    <%= render 'shared/form/text_area',
 	    				attrib: :note,
-	    				cols: 36,
+	    				cols: 33,
 	    				rows: 1,
 	    				form: form %>
 	  </div>
+		<div class='col-start-1'>
+			<%= form.submit 'Save',
+	            class: "mx-4 submit-button font-sans" %>
+		</div>
 	</div>
 
-	<%= form.hidden_field :precert_id %>
-
-	<div class="flex flex-col md:flex-row">
-		<%= form.submit 'Save',
-            class: "mx-4 submit-button font-sans" %>
-	</div>
 <% end %>

@@ -1,18 +1,18 @@
 <div class="flex flex-row justify-between">
-  <h1 class="font-sans font-bold text-xl">Contacts</h1>
+  <h1 class="font-sans font-bold text-xl">Peer-to-Peer</h1>
 </div>
 
 <div class="flex flex-col max-w-full mx-auto">
   <div class="inline-block relative py-2 overflow-x-auto">
     <table class="w-full text-xl font-medium">
       <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
-        <%= render 'contacts/head' %>
+        <%= render 'peer2peers/head' %>
       </thead>
       <tbody>
-        <% contacts.each_with_index do |contact, i| %>
-          <% next unless contact.id %>
+        <% p2ps.each_with_index do |p2p, i| %>
+          <% next unless p2p.id %>
           <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
-          <%= render 'contacts/row', contact: contact, background: background %>
+          <%= render 'peer2peers/row', p2p: p2p, background: background %>
         <% end %>
       </tbody>
     </table>

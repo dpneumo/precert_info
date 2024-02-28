@@ -1,0 +1,32 @@
+<div id="<%= dom_id peer2peer %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Scheduled:</strong>
+    <%= peer2peer.scheduled %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Peer:</strong>
+    <%= peer2peer.peer %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Accept:</strong>
+    <%= peer2peer.accept %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Code:</strong>
+    <%= peer2peer.code %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Note:</strong>
+    <%= peer2peer.note %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this peer2peer", peer2peer, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this peer2peer", edit_peer2peer_path(peer2peer), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
