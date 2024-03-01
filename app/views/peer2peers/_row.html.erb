@@ -1,8 +1,9 @@
   <tr class='<%= background %>' >
-    <td class='td-pad td-base'><%= p2p.scheduled_datetime %></td>
+    <td class='td-pad td-base'><%= p2p.date_of_p2p %></td>
+    <td class='td-pad td-base'><%= p2p.time_of_p2p %></td>
+    <td class='td-pad td-base'><%= p2p.duration %></td>
+    <td class='td-pad td-base'><%= p2p.provider_name %></td>
     <td class='td-pad td-base'><%= p2p.peer %></td>
-    <td class='td-pad td-base'><%= p2p.accept_yes_no %></td>
-    <td class='td-pad td-base'><%= p2p.code %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= p2p.note_hint %></td>
     <td scope="col" class="th-pad th-base">
       <%= link_to 'Edit',

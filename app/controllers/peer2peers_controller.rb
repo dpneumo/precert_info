@@ -47,6 +47,6 @@ class Peer2peersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def peer2peer_params
-      params.require(:peer2peer).permit(:precert_id, :scheduled, :peer, :accept, :code, :note)
+      params.require(:peer2peer).permit(:precert_id, :p2p_date, :p2p_time, :duration, :provider_id, :peer, :note)
     end
 end
