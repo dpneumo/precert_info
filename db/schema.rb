@@ -52,10 +52,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
 
   create_table "peer2peers", force: :cascade do |t|
     t.integer "precert_id", null: false
-    t.datetime "scheduled", null: false
+    t.datetime "p2p_date", null: false
+    t.datetime "p2p_time", null: false
+    t.integer "duration", null: false
+    t.string "provider", null: false
     t.string "peer"
-    t.boolean "accept"
-    t.string "code"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

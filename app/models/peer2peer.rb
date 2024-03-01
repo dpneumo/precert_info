@@ -1,13 +1,14 @@
 class Peer2peer < ApplicationRecord
   belongs_to :precert
 
-  def scheduled_datetime
-    return '' unless scheduled  
-    scheduled.strftime('%D %l:%M %p')
+  def date_of_p2p
+    return '' unless p2p_date  
+    p2p_date.strftime('%D')
   end
 
-  def accept_yes_no
-    accept ? 'Yes' : 'No'
+  def time_of_p2p
+    return '' unless p2p_time  
+    p2p_time.strftime('%l:%M %p')
   end
 
   def note_hint
