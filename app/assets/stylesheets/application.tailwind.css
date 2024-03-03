@@ -11,7 +11,7 @@
 }
 
 .submit-button {
-  @apply px-3 py-2 rounded-md text-white text-sm font-sans font-semibold shadow-sm bg-indigo-600 hover:bg-indigo-500 submit-focused;
+  @apply my-10 px-3 py-2 rounded-md text-white text-sm font-sans font-semibold shadow-sm bg-indigo-600 hover:bg-indigo-500 submit-focused;
 }
 
 .td-pad {
@@ -32,6 +32,10 @@
 
 .th-base {
   @apply text-left text-base text-gray-900 font-sans font-semibold;
+}
+
+.th-base-right {
+  @apply text-right text-base text-gray-900 font-sans font-semibold;  
 }
 
 .ring {
@@ -60,6 +64,22 @@
 
 .form-field-label {
   @apply block pl-3 pt-1 font-sans font-semibold text-sm text-gray-900 leading-3;
+}
+
+.btn-green {
+  @apply bg-green-500 hover:bg-green-700;
+}
+
+.btn-indigo {
+  @apply bg-indigo-500 hover:bg-indigo-700;
+}
+
+.btn-text {
+  @apply text-white font-sans font-bold;
+}
+
+.btn-shape-thin {
+  @apply mx-4 mb-4 px-4 rounded;
 }
 
 /* 

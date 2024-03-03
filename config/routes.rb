@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :precerts do 
     resources :contacts, except: [:index, :new] 
+    resources :peer2peers, except: [:index, :new]
   end
   resources :insurers
   resources :services

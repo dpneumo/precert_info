@@ -1,0 +1,43 @@
+<%= form_with(model: [@peer2peer.precert, @peer2peer], local: true) do |form| %>
+  <%= form.hidden_field :precert_id %>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/select_field', attrib: :provider_id, form: form,
+                  label_txt: 'Provider',
+                  collection: Provider.select_collection,
+                  include_blank: true,
+                  selected: @peer2peer.provider_id %>
+    </div>
+    <div class='col-start-1'>
+      <%= render 'shared/form/text_field', attrib: :peer, form: form %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/date_field', attrib: :p2p_date, max: 1.year.from_now, seconds: false, form: form %>
+    </div>
+    <div class='col-start-1'>
+      <%= render 'shared/form/time_field', attrib: :p2p_time, max: 1.year.from_now, seconds: false, form: form %>
+    </div>
+    <div class='col-start-2'>
+      <%= render 'shared/form/number_field', attrib: :duration, form: form %>
+    </div>
+  </div>
+
+  <div class="flex flex-col md:flex-row">
+    <div class='col-start-0'>
+      <%= render 'shared/form/text_area',
+              attrib: :note,
+              cols: 33,
+              rows: 1,
+              form: form %>
+    </div>
+    <div class='col-start-1'>
+      <%= form.submit 'Save',
+              class: "mx-4 submit-button font-sans" %>
+    </div>
+  </div>
+
+<% end %>

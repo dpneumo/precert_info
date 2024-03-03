@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
   create_table "contacts", force: :cascade do |t|
     t.integer "precert_id", null: false
     t.datetime "contact_date", null: false
@@ -48,6 +48,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
     t.string "ph_main"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "peer2peers", force: :cascade do |t|
+    t.integer "precert_id", null: false
+    t.integer "provider_id", null: false
+    t.datetime "p2p_date", null: false
+    t.datetime "p2p_time", null: false
+    t.integer "duration", null: false
+    t.string "peer"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["precert_id"], name: "index_peer2peers_on_precert_id"
+    t.index ["provider_id"], name: "index_peer2peers_on_provider_id"
   end
 
   create_table "precerts", force: :cascade do |t|
@@ -89,4 +103,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_174536) do
   end
 
   add_foreign_key "contacts", "precerts"
+  add_foreign_key "peer2peers", "precerts"
+  add_foreign_key "peer2peers", "providers"
 end

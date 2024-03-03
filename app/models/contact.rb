@@ -27,6 +27,11 @@ class Contact < ApplicationRecord
     contact_time.strftime('%l:%M %p')
   end
 
+  def dur_of_contact
+    return '' unless duration  
+    "#{duration} min"
+  end
+
   def note_hint
     return '' unless note  
     note.length > 20 ? note.slice(0..19)+'...' : note
