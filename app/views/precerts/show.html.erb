@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="grid grid-col justify-center mx-10">
-  <div class='col-start-1 grid grid-rows-auto -mx-10'>
+  <div class='col-start-1 grid grid-rows-auto -ml-10 min-w-80'>
     <div class='row-start-1 max-h-fit'>
       <%= render 'precert' %>
     </div>
@@ -17,24 +17,36 @@
     </div>
 
     <div class='row-start-3 h-fit -ml-4 mt-5'>
-      <div class='font-bold font-sans'>New Contact</div>
-      <%= render partial: 'contacts/form' %>
+      <button
+        data-controller="modal"
+        data-modal-dialog-param="new_contact_modal"
+        class='btn-shape-thin btn-green btn-text'>
+          New Contact
+      </button>
+
+      <button
+        data-controller="modal"
+        data-modal-dialog-param="new_p2p_modal"
+        class='btn-shape-thin btn-indigo btn-text'>
+          New Peer-to-Peer
+      </button>
     </div>
 
-    <div class='row-start-4 h-fit -ml-4 mt-5'>
-      <div class='font-bold font-sans'>New Peer-to-Peer</div>
+    <dialog id="new_contact_modal" aria-labelledby="new_contact_modal_title">
+      <%= render partial: 'contacts/dialog_header' %>
+      <%= render partial: 'contacts/form' %>
+    </dialog>
+
+    <dialog id="new_p2p_modal" aria-labelledby="new_p2p_modal_title">
+      <%= render partial: 'peer2peers/dialog_header' %>
       <%= render partial: 'peer2peers/form' %>
-    </div>
+    </dialog>
   </div>
 
   <div class='col-start-2 grid grid-rows-auto -mx-10'>
-    <div data-controller="contacts">
-      <div data-target="contacts.show" style="visibility:visible">
-        <%= render 'precerts/related_contacts', contacts: @precert.contacts %>
-      </div>
-      <div data-target="peer2peer.show" style="visibility:visible">
-        <%= render 'precerts/related_p2ps', p2ps: @precert.peer2peers %>
-      </div>
+    <div>
+      <%= render 'precerts/related_contacts', contacts: @precert.contacts %>
+      <%= render 'precerts/related_p2ps', p2ps: @precert.peer2peers %>
     </div>
   </div>
 </div>

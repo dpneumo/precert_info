@@ -3,7 +3,7 @@
     <td class='td-pad td-base'><%= contact.time_of_contact %></td>
     <td class='td-pad td-base'><%= contact.dur_of_contact %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= contact.note_hint %></td>
-    <td scope="col" class="th-pad th-base">
+    <td scope="col" class="th-pad th-base-right">
       <%= link_to 'Edit',
             edit_precert_contact_path(contact.precert, contact),
             class: 'link-hover' %> </td>
