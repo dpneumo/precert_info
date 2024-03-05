@@ -11,16 +11,13 @@ class Precert < ApplicationRecord
 
   validates :patientMRN, presence: true
 
-  scope :is_open, -> { where(closed: [nil]) }
-  scope :is_closed, -> { where.not(closed: [nil]) }
-  scope :is_approved, -> { where.not(approval: [nil]) }
-  scope :is_unapproved, -> { where(approval: [nil]) }
-  scope :is_submitted, -> { where.not(submitted: [nil]) }
-  scope :is_unsubmitted, -> { where(submitted: [nil]) }
-  scope :serv, ->(id) { where('service_id == ?', id) }
-  scope :dx, ->(id) { where('diagnosis_id == ?', id) }
-  scope :prov, ->(id) { where('provider_id == ?', id) }
-  scope :ins, ->(id) { where('service_id == ?', id) }
+  enum :status, [:created, :submitted, :closed]
+
+  scope :filter_by_approved,  -> (approved) { where('approved == ?', approved) }
+  scope :filter_by_service,   ->(id) { where('service_id == ?', id) }
+  scope :filter_by_dx,        ->(id) { where('diagnosis_id == ?', id) }
+  scope :filter_by_provider,  ->(id) { where('provider_id == ?', id) }
+  scope :filter_by_insurance, ->(id) { where('service_id == ?', id) }
 
   def self.ndx_header
     'Precerts'
@@ -31,18 +28,18 @@ class Precert < ApplicationRecord
   end
 
   def fmtd_submit_date
-    return '' unless submitted  
-    submitted.strftime('%D')
+    return '' unless submission_date  
+    submission_date.strftime('%D')
   end
 
   def fmtd_approval_date
-    return '' unless approval  
-    approval.strftime('%D')
+    return '' unless approval_date  
+    approval_date.strftime('%D')
   end
 
   def fmtd_closed_date
-    return '' unless closed  
-    closed.strftime('%D')
+    return '' unless closed_date  
+    closed_date.strftime('%D')
   end
 
   def confirm_hint

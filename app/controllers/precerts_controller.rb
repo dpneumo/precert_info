@@ -23,18 +23,22 @@ class PrecertsController < ApplicationController
 
   # POST /precerts or /precerts.json
   def create
+    set_status_and_approved(precert_params)  
     @precert = Precert.new(precert_params)
     if @precert.save
-      redirect_to precert_url(@precert), notice: "Precert was successfully created."
+      redirect_to precert_url(@precert), 
+                  notice: "Precert was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /precerts/1 or /precerts/1.json
-  def update  
-    if @precert.update(precert_params)
-      redirect_to precert_url(@precert), notice: "Precert was successfully updated."
+  def update
+    parms = set_status_and_approved(precert_params)  
+    if @precert.update(parms)
+      redirect_to precert_url(@precert), 
+                  notice: "Precert was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +47,8 @@ class PrecertsController < ApplicationController
   # DELETE /precerts/1 or /precerts/1.json
   def destroy
     @precert.destroy!
-    redirect_to precerts_url, notice: "Precert was successfully destroyed."
+    redirect_to precerts_url, 
+                notice: "Precert was successfully destroyed."
   end
 
   private
@@ -54,6 +59,13 @@ class PrecertsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def precert_params
-      params.require(:precert).permit(:patientMRN, :service_id, :diagnosis_id, :provider_id, :insurer_id, :submitted, :approved, :approval, :confirmation, :closed, :note)
+      params.require(:precert).permit(:patientMRN, :service_id, :diagnosis_id, :provider_id, :insurer_id, :status, :approved, :confirmation, :submission_date, :approval_date, :closed_date, :note)
+    end
+
+    def set_status_and_approved(params)
+      params[:status] = :submitted if !params[:submission_date].blank?
+      params[:status] = :closed if !params[:closed_date].blank?
+      params[:approved] = true if !params[:approval_date].blank?
+      params
     end
 end

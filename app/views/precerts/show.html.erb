@@ -5,7 +5,7 @@
 <% end %>
 
 <div class="grid grid-col justify-center mx-10">
-  <div class='col-start-1 grid grid-rows-auto -ml-10 min-w-80'>
+  <div class='col-start-1 grid grid-rows-auto mx-4 min-w-80'>
     <div class='row-start-1 max-h-fit'>
       <%= render 'precert' %>
     </div>
@@ -43,7 +43,7 @@
     </dialog>
   </div>
 
-  <div class='col-start-2 grid grid-rows-auto -mx-10'>
+  <div class='col-start-1 grid grid-rows-auto mx-4 lg:col-start-2'>
     <div>
       <%= render 'precerts/related_contacts', contacts: @precert.contacts %>
       <%= render 'precerts/related_p2ps', p2ps: @precert.peer2peers %>

@@ -70,10 +70,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
     t.integer "diagnosis_id"
     t.integer "provider_id"
     t.integer "insurer_id"
-    t.datetime "submitted"
-    t.datetime "approval"
+    t.integer "status", default: 0
+    t.boolean "approved", default: false
     t.string "confirmation"
-    t.datetime "closed"
+    t.datetime "submission_date"
+    t.datetime "approval_date"
+    t.datetime "closed_date"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

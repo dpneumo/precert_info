@@ -4,8 +4,10 @@
   </header>
 
   <div class='row-start-2 h-fit mb-3'>
-    <%= render "shared/show/attrib_wide",
-      attribute: @precert.patientMRN, label: 'MRN'
+    <%= render "shared/show/attribs",
+      attributes: [
+        {attribute: @precert.patientMRN, label: 'MRN'},
+      ]
     %>
   </div>
 
@@ -34,7 +36,7 @@
     <%= render "shared/show/attribs",
       attributes: [
         {attribute: @precert.fmtd_submit_date, label: 'Submitted'},
-        {attribute: @precert.fmtd_approval_date, label: 'Approved'},
+        {attribute: @precert.approved, label: 'Approved?'},
       ]
     %>
   </div>
@@ -42,7 +44,15 @@
   <div class='row-start-7 h-fit mb-3'>
     <%= render "shared/show/attribs",
       attributes: [
+        {attribute: @precert.fmtd_approval_date, label: 'Approved'},
         {attribute: @precert.confirmation, label: 'Conf #'},
+      ]
+    %>
+  </div>
+
+  <div class='row-start-8 h-fit mb-3'>
+    <%= render "shared/show/attribs",
+      attributes: [
         {attribute: @precert.fmtd_closed_date, label: 'Closed'},
       ]
     %>
