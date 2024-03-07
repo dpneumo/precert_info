@@ -3,10 +3,7 @@
 
 	<div class="flex flex-col md:flex-row">
 	  <div class='col-start-0'>
-	  	<%= render 'shared/form/date_field', attrib: :contact_date, max: 1.year.from_now, seconds: false, form: form %>
-	  </div>
-	  <div class='col-start-1'>
-	    <%= render 'shared/form/time_field', attrib: :contact_time, max: 1.year.from_now, seconds: false, form: form %>
+	  	<%= render 'shared/form/datetime_field', attrib: :contact_date, max: 1.year.from_now, seconds: true, form: form %>
 	  </div>
 	  <div class='col-start-2'>
 	  	<%= render 'shared/form/number_field', attrib: :duration, form: form %>

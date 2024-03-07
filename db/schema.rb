@@ -13,8 +13,7 @@
 ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
   create_table "contacts", force: :cascade do |t|
     t.integer "precert_id", null: false
-    t.datetime "contact_date", null: false
-    t.datetime "contact_time", null: false
+    t.datetime "contact_date"
     t.integer "duration"
     t.text "note"
     t.datetime "created_at", null: false
@@ -25,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
   create_table "diagnoses", force: :cascade do |t|
     t.string "name"
     t.string "icd10"
+    t.string "dxtype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["icd10"], name: "index_diagnoses_on_icd10", unique: true
@@ -53,9 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
   create_table "peer2peers", force: :cascade do |t|
     t.integer "precert_id", null: false
     t.integer "provider_id", null: false
-    t.datetime "p2p_date", null: false
-    t.datetime "p2p_time", null: false
-    t.integer "duration", null: false
+    t.datetime "p2p_date"
+    t.integer "duration"
     t.string "peer"
     t.text "note"
     t.datetime "created_at", null: false
@@ -97,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_28_040724) do
 
   create_table "services", force: :cascade do |t|
     t.string "name"
+    t.string "cptcode"
     t.string "servtype"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,7 +1,6 @@
 class Contact < ApplicationRecord
   belongs_to :precert
 
-  validates :contact_time, presence: true
   validates :duration,  presence: true
 
   def self.ndx_header
@@ -19,12 +18,7 @@ class Contact < ApplicationRecord
 
   def date_of_contact
     return '' unless contact_date  
-    contact_date.strftime('%D')
-  end
-
-  def time_of_contact
-    return '' unless contact_time  
-    contact_time.strftime('%l:%M %p')
+    contact_date.strftime('%D  %l:%M %p')
   end
 
   def dur_of_contact
@@ -38,6 +32,6 @@ class Contact < ApplicationRecord
   end
 
   def synopsis
-    "ID: #{id}: #{date_of_contact} #{time_of_contact} - #{duration} min: #{note_hint}"
+    "ID: #{id}: #{date_of_contact} - #{duration} min: #{note_hint}"
   end
 end

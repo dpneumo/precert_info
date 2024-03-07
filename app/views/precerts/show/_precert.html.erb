@@ -4,10 +4,8 @@
   </header>
 
   <div class='row-start-2 h-fit mb-3'>
-    <%= render "shared/show/attribs",
-      attributes: [
-        {attribute: @precert.patientMRN, label: 'MRN'},
-      ]
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.patientMRN, label: 'MRN'
     %>
   </div>
 
@@ -21,31 +19,32 @@
     <%= render "shared/show/attribs",
       attributes: [
         {attribute: @precert.diagnosis.name, label: 'Diagnosis'},
-        {attribute: @precert.service.name, label: 'Service'},
+        {attribute: @precert.diagnosis.icd10, label: 'ICD-10'},
       ]
     %>
   </div>
 
   <div class='row-start-5 h-fit mb-3'>
-    <%= render "shared/show/attrib_wide",
-      attribute: @precert.insurer.name, label: 'Insurer'
+    <%= render "shared/show/attribs",
+      attributes: [
+        {attribute: @precert.service.name, label: 'Service'},
+        {attribute: @precert.service.cptcode, label: 'CPT Code'},
+      ]
     %>
+    <hr class='mt-1 border-1 border-gray-700' />
   </div>
 
   <div class='row-start-6 h-fit mb-3'>
-    <%= render "shared/show/attribs",
-      attributes: [
-        {attribute: @precert.fmtd_submit_date, label: 'Submitted'},
-        {attribute: @precert.approved, label: 'Approved?'},
-      ]
+    <%= render "shared/show/attrib_wide",
+      attribute: @precert.insurer.name, label: 'Insurer'
     %>
   </div>
 
   <div class='row-start-7 h-fit mb-3'>
     <%= render "shared/show/attribs",
       attributes: [
+        {attribute: @precert.fmtd_submit_date, label: 'Submitted'},
         {attribute: @precert.fmtd_approval_date, label: 'Approved'},
-        {attribute: @precert.confirmation, label: 'Conf #'},
       ]
     %>
   </div>
@@ -54,8 +53,10 @@
     <%= render "shared/show/attribs",
       attributes: [
         {attribute: @precert.fmtd_closed_date, label: 'Closed'},
+        {attribute: @precert.confirmation, label: 'Conf #'},
       ]
     %>
+    <hr class='mt-1 border-1 border-gray-700' />
   </div>
 
   <div class='row-start-9 h-fit mb-3'>

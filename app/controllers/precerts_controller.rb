@@ -8,7 +8,7 @@ class PrecertsController < ApplicationController
 
   # GET /precerts/1 or /precerts/1.json
   def show
-    @contact =  @precert.contacts.build(the_present)
+    @contact =  @precert.contacts.build
     @peer2peer = @precert.peer2peers.build
   end
 

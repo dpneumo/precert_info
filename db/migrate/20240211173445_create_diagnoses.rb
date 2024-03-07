@@ -3,6 +3,7 @@ class CreateDiagnoses < ActiveRecord::Migration[7.1]
     create_table :diagnoses do |t|
       t.string :name
       t.string :icd10
+      t.string :dxtype
 
       t.timestamps
     end

@@ -4,12 +4,7 @@ class Peer2peer < ApplicationRecord
 
   def date_of_p2p
     return '' unless p2p_date  
-    p2p_date.strftime('%D')
-  end
-
-  def time_of_p2p
-    return '' unless p2p_time  
-    p2p_time.strftime('%l:%M %p')
+    p2p_date.strftime('%D %l:%M %p')
   end
 
   def dur_of_contact

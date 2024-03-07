@@ -6,7 +6,14 @@ class Diagnosis < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    all.map {|dx| [dx.name, dx.id] }
+    order(:name).map {|dx| [dx.name, dx.id] }
+  end
+
+  def self.grouped_select_collection
+    order(:dxtype, :name).inject({}) do |coll, dx| 
+      coll[dx.dxtype] = [] unless coll[dx.dxtype]
+      coll[dx.dxtype].append([dx.name, dx.id]) 
+    end
   end
 
   def self.ndx_header
