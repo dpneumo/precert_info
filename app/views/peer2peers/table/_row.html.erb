@@ -1,0 +1,29 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad td-base'><%= p2p.date_of_p2p %></td>
+    <td class='td-pad td-base'><%= p2p.time_of_p2p %></td>
+    <td class='td-pad td-base'><%= p2p.dur_of_contact %></td>
+    <td class='td-pad td-base'><%= p2p.provider_name %></td>
+    <td class='td-pad td-base'><%= p2p.peer %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= p2p.note_hint %></td>
+    <td scope="col" class="th-pad th-base-right">
+      <button
+        data-controller="modal"
+        data-modal-dialog-param="edit_p2p_modal"
+        class='link-hover'>
+          Edit
+      </button>
+    </td>
+    <td>
+      <%= link_to( 'Delete',
+              precert_peer2peer_path(p2p.precert, p2p),
+              class: 'text-base font-sans font-medium link-hover',
+              data: { turbo_method: :delete,
+                      turbo_confirm: "Are you sure?" }) %>
+    </td>
+  </tr>
+
+  <dialog id="edit_p2p_modal" aria-labelledby="edit_p2p_modal_title">
+    <%= render partial: 'peer2peers/form/dialog_header',
+               locals: {title: 'Edit Peer-to-Peer'} %>
+    <%= render partial: 'peer2peers/form/form' %>
+  </dialog>

@@ -5,7 +5,7 @@ export default class extends Controller {
     this.element.dataset.action = "modal#show";
   }
  
-   show(event) {
+  show(event) {
     const dialog = document.getElementById(event.params.dialog);
     dialog.showModal();
   }

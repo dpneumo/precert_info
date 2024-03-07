@@ -74,6 +74,10 @@
   @apply bg-indigo-500 hover:bg-indigo-700;
 }
 
+.btn-gray {
+  @apply bg-gray-500 hover:bg-gray-700;
+}
+
 .btn-text {
   @apply text-white font-sans font-bold;
 }

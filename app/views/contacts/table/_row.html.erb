@@ -1,0 +1,27 @@
+  <tr class='<%= background %>' >
+    <td class='td-pad td-base'><%= contact.date_of_contact %></td>
+    <td class='td-pad td-base'><%= contact.time_of_contact %></td>
+    <td class='td-pad td-base'><%= contact.dur_of_contact %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= contact.note_hint %></td>
+    <td scope="col" class="th-pad th-base-right">
+      <button
+        data-controller="modal"
+        data-modal-dialog-param="edit_contact_modal"
+        class='link-hover'>
+          Edit
+      </button>
+    </td>
+    <td>
+      <%= link_to( 'Delete',
+              precert_contact_path(contact.precert, contact),
+              class: 'text-base font-sans font-medium link-hover',
+              data: { turbo_method: :delete,
+                      turbo_confirm: "Are you sure?" }) %>
+    </td>
+  </tr>
+
+  <dialog id="edit_contact_modal" aria-labelledby="edit_contact_modal_title">
+    <%= render partial: 'contacts/form/dialog_header',
+               locals: {title: 'Edit Contact'} %>
+    <%= render partial: 'contacts/form/form' %>
+  </dialog>

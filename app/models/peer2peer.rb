@@ -12,6 +12,11 @@ class Peer2peer < ApplicationRecord
     p2p_time.strftime('%l:%M %p')
   end
 
+  def dur_of_contact
+    return '' unless duration  
+    "#{duration} min"
+  end
+
   def provider_name
     return '' unless provider_id
     provider.name 

@@ -18,7 +18,7 @@ class Peer2peersController < ApplicationController
   def create
     @peer2peer = Peer2peer.new(peer2peer_params)
     if @peer2peer.save
-      redirect_to precerts_path, notice: "Peer2Peer was successfully created."
+      redirect_to precert_path(@peer2peer.precert), notice: "Peer2Peer was successfully created."
     else
       redirect_back fallback_location: root_path , notice: 'Something went wrong.'
     end

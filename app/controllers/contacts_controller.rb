@@ -13,7 +13,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.save
-      redirect_to precerts_path, notice: "Contact was successfully created."
+      redirect_to precert_path(@contact.precert), notice: "Contact was successfully created."
     else
       redirect_back fallback_location: root_path , notice: 'Something went wrong.'
     end
