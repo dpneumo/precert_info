@@ -20,7 +20,6 @@
   </tr>
 
   <dialog id="edit_contact_modal" aria-labelledby="edit_contact_modal_title">
-    <%= render partial: 'contacts/form/dialog_header',
-               locals: {title: 'Edit Contact'} %>
-    <%= render partial: 'contacts/form/form' %>
+    <%= render 'contacts/form/dialog_header', title: 'Edit Contact' %>
+    <%= render 'contacts/form/form', contact: contact %>
   </dialog>
