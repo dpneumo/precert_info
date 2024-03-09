@@ -6,7 +6,15 @@ class Service < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    all.map {|serv| [serv.name, serv.id] }
+    order(:servtype, :name).map {|serv| [serv.name, serv.id] }
+  end
+
+  def self.grouped_select_collection
+    h = Hash.new {|hash,key| hash[key] = [] }
+    order(:servtype, :name).inject(h) do |coll, serv| 
+      coll[serv.servtype].append([serv.name, serv.id]) 
+      coll
+    end
   end
 
   def self.ndx_header

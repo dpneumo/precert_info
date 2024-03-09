@@ -3,7 +3,7 @@ class DiagnosesController < ApplicationController
 
   # GET /diagnoses or /diagnoses.json
   def index
-    @pagy, @diagnoses = pagy(Diagnosis.all)
+    @pagy, @diagnoses = pagy(Diagnosis.order(:dxtype, :name))
   end
 
   # GET /diagnoses/1 or /diagnoses/1.json

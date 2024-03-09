@@ -6,13 +6,14 @@ class Diagnosis < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    order(:name).map {|dx| [dx.name, dx.id] }
+    order(:dxtype, :name).map {|dx| [dx.name, dx.id] }
   end
 
   def self.grouped_select_collection
-    order(:dxtype, :name).inject({}) do |coll, dx| 
-      coll[dx.dxtype] = [] unless coll[dx.dxtype]
+    h = Hash.new {|hash,key| hash[key] = [] }
+    order(:dxtype, :name).inject(h) do |coll, dx| 
       coll[dx.dxtype].append([dx.name, dx.id]) 
+      coll
     end
   end
 

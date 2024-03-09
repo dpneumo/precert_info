@@ -10,12 +10,12 @@
                   selected: mdl.provider_id %>
   <%= render 'shared/form/select_field', attrib: :diagnosis_id, form: form,
                   label_txt: 'Diagnosis',
-                  collection: Diagnosis.select_collection,
+                  collection: Diagnosis.grouped_select_collection,
                   include_blank: true,
                   selected: mdl.diagnosis_id %>
   <%= render 'shared/form/select_field', attrib: :service_id, form: form,
                   label_txt: 'Service',
-                  collection: Service.select_collection,
+                  collection: Service.grouped_select_collection,
                   include_blank: true,
                   selected: mdl.service_id %>
 </div>

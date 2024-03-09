@@ -5,7 +5,7 @@ class Insurer < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    all.map {|ins| [ins.name, ins.id] }
+    order(:name).map {|ins| [ins.name, ins.id] }
   end
 
   def self.ndx_header
