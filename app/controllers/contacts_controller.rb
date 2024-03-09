@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
+    @contact.duration = time_diff if @contact.duration.blank?
     if @contact.save
       redirect_to precert_path(@contact.precert), notice: "Contact was successfully created."
     else
@@ -20,7 +21,8 @@ class ContactsController < ApplicationController
   end
 
   # PATCH/PUT /contacts/1
-  def update  
+  def update 
+    @contact.duration = time_diff if @contact.duration.blank?
     if @contact.update(contact_params)
       redirect_to precert_path(@contact.precert), notice: "Contact was successfully updated."
     else
@@ -34,14 +36,20 @@ class ContactsController < ApplicationController
     redirect_to precert_path(@contact.precert), status: 303, notice: "Contact was successfully destroyed."
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_contact
-      @contact = Contact.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_contact
+    @contact = Contact.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def contact_params
-      params.require(:contact).permit(:precert_id, :contact_date, :duration, :note)
-    end
+  # Only allow a list of trusted parameters through.
+  def contact_params
+    params.require(:contact).permit(:precert_id, :contact_date, :duration, :note)
+  end
+
+  def time_diff
+    tz_correction = 6 * 60
+    minutes_diff =  (Time.now.to_i - @contact.contact_date.to_i)/60
+    minutes_diff - tz_correction
+  end
 end
