@@ -6,7 +6,8 @@ export default class extends Controller {
   }
  
   show(event) {
+    const contactId = this.data.get("contactId")
     const dialog = document.getElementById(event.params.dialog);
-    dialog.showModal();
+    dialog.showModal(contactId);
   }
 } 
