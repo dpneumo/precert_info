@@ -6,13 +6,13 @@
   <div class="inline-block relative py-2 overflow-x-auto">
     <table class="w-full text-xl font-medium">
       <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
-        <%= render 'contacts/table/head' %>
+        <%= render 'precerts/contacts/head' %>
       </thead>
       <tbody>
         <% contacts.each_with_index do |contact, i| %>
           <% next unless contact.id %>
           <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
-          <%= render 'contacts/table/row', contact: contact, background: background %>
+          <%= render 'precerts/contacts/row', contact: contact, background: background %>
         <% end %>
       </tbody>
     </table>

@@ -6,13 +6,13 @@
   <div class="inline-block relative py-2 overflow-x-auto">
     <table class="w-full text-xl font-medium">
       <thead class="bg-gray-400 font-sans font-medium dark:border-neutral-800 dark:bg-neutral-300">
-        <%= render 'peer2peers/table/head' %>
+        <%= render 'precerts/peer2peers/head' %>
       </thead>
       <tbody>
         <% p2ps.each_with_index do |p2p, i| %>
           <% next unless p2p.id %>
           <% background = i.even? ? 'bg-white' : 'bg-gray-200' %>
-          <%= render 'peer2peers/table/row', p2p: p2p, background: background %>
+          <%= render 'precerts/peer2peers/row', p2p: p2p, background: background %>
         <% end %>
       </tbody>
     </table>
