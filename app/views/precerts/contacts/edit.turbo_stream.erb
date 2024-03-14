@@ -11,6 +11,9 @@
       </form>
     </header>
 
-    <%= render 'contacts/form/form', contact: @contact %>
+    <%= render 'precerts/contacts/form',
+                precert: @contact.precert,
+                contact: @contact,
+                method: :patch %>
   </dialog>
 <% end %>

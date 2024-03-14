@@ -11,6 +11,9 @@
       </form>
     </header>
 
-    <%= render 'peer2peers/form/form', peer2peer: @peer2peer %>
+    <%= render 'precerts/peer2peers/form',
+                precert: @peer2peer.precert,
+                peer2peer: @peer2peer,
+                method: :post %>
   </dialog>
 <% end %>
