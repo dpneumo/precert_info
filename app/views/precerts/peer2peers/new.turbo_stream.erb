@@ -1,0 +1,16 @@
+<%# app/views/precerts/peers2peers/new.turbo_stream.erb %>
+
+<%= turbo_stream.show_remote_modal do %>
+  <dialog id="contact_form_modal" aria-labelledby="modal_title">
+    <header>
+      <h2 id="modal_title">
+        New Peer-to-Peer
+      </h2>
+      <form method="dialog">
+        <button aria-label="close">X</button>
+      </form>
+    </header>
+
+    <%= render 'peer2peers/form/form', peer2peer: @peer2peer %>
+  </dialog>
+<% end %>

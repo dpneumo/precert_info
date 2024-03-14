@@ -1,32 +1,47 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit update destroy ]
 
-  # GET /contacts/1
+  # GET /precerts/1/contacts/1
   def show
   end
 
-  # GET /contacts/1/edit
-  def edit
+  # GET /precerts/1/contacts/new
+  def new
+    @contact = Precert.find(params[:precert_id]).contacts.build
+    render 'precerts/contacts/new'
   end
 
-  # POST /contacts
+  # GET /precerts/1/contacts/1/edit
+  def edit
+    render 'precerts/contacts/edit'
+  end
+
+  # POST /precerts/1/contacts
   def create
     @contact = Contact.new(contact_params)
     @contact.duration = time_diff if @contact.duration.blank?
-    if @contact.save
-      redirect_to precert_path(@contact.precert), notice: "Contact was successfully created."
-    else
-      redirect_back fallback_location: root_path , notice: 'Something went wrong.'
+
+    respond_to do |format|
+      if @contact.save
+        format.html { redirect_to precert_path(@contact.precert), notice: "Contact was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /contacts/1
   def update 
     @contact.duration = time_diff if @contact.duration.blank?
-    if @contact.update(contact_params)
-      redirect_to precert_path(@contact.precert), notice: "Contact was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    
+    respond_to do |format|
+      if @contact.update(contact_params)
+        format.html { redirect_to precert_path(@contact.precert), notice: "Contact was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 

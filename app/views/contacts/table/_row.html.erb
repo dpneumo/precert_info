@@ -3,13 +3,10 @@
     <td class='td-pad td-base'><%= contact.dur_of_contact %></td>
     <td class='td-pad td-base hidden lg:table-cell'><%= contact.note_hint %></td>
     <td scope="col" class="th-pad th-base-right">
-      <button
-        data-controller="modal"
-        data-modal-dialog-param="edit_contact_modal"
-        data-modal-contact_id=<%= contact.id %>
-        class='link-hover'>
-          Edit
-      </button>
+      <%= link_to 'Edit',
+              edit_precert_contact_path(contact.precert, contact),
+              class: 'text-base font-sans font-medium link-hover',
+              data: { turbo_stream: true } %>
     </td>
     <td>
       <%= link_to( 'Delete',
@@ -19,8 +16,3 @@
                       turbo_confirm: "Are you sure?" }) %>
     </td>
   </tr>
-
-  <dialog id="edit_contact_modal" aria-labelledby="edit_contact_modal_title">
-    <%= render 'contacts/form/dialog_header', title: 'Edit Contact' %>
-    <%= render 'contacts/form/form', contact: contact %>
-  </dialog>
