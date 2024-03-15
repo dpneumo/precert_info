@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :precerts do 
     resources :contacts, except: [:index] 
     resources :peer2peers, except: [:index]
