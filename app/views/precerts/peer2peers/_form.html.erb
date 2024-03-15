@@ -3,39 +3,52 @@
 
   <div class="flex flex-col md:flex-row">
     <div class='col-start-0'>
-      <%= render 'shared/form/select_field', attrib: :provider_id, form: form,
+      <%= render 'shared/form/select_field',
+                  attrib: :provider_id,
                   label_txt: 'Provider',
                   collection: Provider.select_collection,
                   include_blank: true,
-                  selected: @peer2peer.provider_id %>
+                  selected: @peer2peer.provider_id,
+                  form: form %>
     </div>
     <div class='col-start-1'>
-      <%= render 'shared/form/text_field', attrib: :peer, form: form %>
+      <%= render 'shared/form/text_field',
+                  attrib: :peer,
+                  form: form %>
     </div>
   </div>
 
   <div class="flex flex-col md:flex-row">
     <div class='col-start-0'>
-      <%= render 'shared/form/datetime_field', attrib: :p2p_date, max: 1.year.from_now, seconds: true, form: form %>
+      <%= render 'shared/form/datetime_field',
+                  attrib: :p2p_date,
+                  max: 1.year.from_now,
+                  seconds: true,
+                  form: form %>
     </div>
     <div class='col-start-2'>
-      <%= render 'shared/form/number_field', attrib: :duration, form: form %>
+      <%= render 'shared/form/number_field',
+                  attrib: :duration,
+                  form: form %>
     </div>
   </div>
 
   <div class="flex flex-col md:flex-row">
     <div class='col-start-0'>
       <%= render 'shared/form/text_area',
-              attrib: :note,
-              cols: 33,
-              rows: 1,
-              form: form %>
-    </div>
-    <div class='col-start-1'>
-      <%= form.submit 'Save',
-              class: "mx-4 submit-button font-sans" %>
-      <%= form.button "Close", value: nil, formmethod: :dialog %>
+                  attrib: :note,
+                  cols: 33,
+                  rows: 1,
+                  form: form %>
     </div>
   </div>
 
+  <div class="flex items-center justify-end">
+        <%= form.submit 'Save',
+                  class: "inline-block h-6 mx-4 font-sans submit-button" %>
+        <%= form.button "Close",
+                  class: "inline-block h-6 mx-4 font-sans",
+                  value: nil,
+                  formmethod: :dialog %>
+  </div>
 <% end %>

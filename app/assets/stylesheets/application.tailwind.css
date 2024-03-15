@@ -11,7 +11,7 @@
 }
 
 .submit-button {
-  @apply my-10 px-3 py-2 rounded-md text-white text-sm font-sans font-semibold shadow-sm bg-indigo-600 hover:bg-indigo-500 submit-focused;
+  @apply my-2 px-3 py-2 rounded-md text-white text-sm font-sans font-semibold shadow-sm bg-indigo-600 hover:bg-indigo-500 submit-focused;
 }
 
 .td-pad {
