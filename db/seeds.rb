@@ -33,8 +33,10 @@ ins3 = Insurer.find_or_create_by!(name: 'Humana')
 ins4 = Insurer.find_or_create_by!(name: 'Cigna')
 ins5 = Insurer.find_or_create_by!(name: 'Celtic')
 
-precert1 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx1.id, provider_id: prov2.id, insurer_id: ins1.id, status: 1,submission_date: Date.new(2024,01,02) )
-precert2 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx2.id, provider_id: prov2.id, insurer_id: ins3.id, status: 1,submission_date: Date.new(2023,12,01) )
+precert1 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx1.id, provider_id: prov2.id, insurer_id: ins1.id, status: 1, submission_date: Date.new(2024,01,02) )
+precert2 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx2.id, provider_id: prov2.id, insurer_id: ins3.id, status: 1, submission_date: Date.new(2023,12,01) )
 precert3 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx1.id, provider_id: prov1.id, insurer_id: ins2.id, status: 1, submission_date: Date.new(2023,10,15) )
 
-User.find_or_create_by!(email: 'dpneumo@gmail.com', password: 'Dragon123')
+if ! User.find_by(email: 'delete.me@dummy.com')
+  User.new(email: 'delete.me@dummy.com', password: 'YouWillBeHacked', password_confirmation: 'YouWillBeHacked').save
+end

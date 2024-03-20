@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>PrecertInfo</title>
     <meta name='description' content='Precertification information'>
@@ -12,15 +12,20 @@
 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "ckbox_rbtn_cloak", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "pagy", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render 'layouts/navbar/header' %>
+    <main class="px-4">
+      <p class="alert"><%= alert %></p>
+      <div class="flex justify-center mx-auto my-4 p-4 w-full sm:w-11/12 md:w-9/12 lg:w-7/12 xl:w-1/2 rounded-lg">
+        <%= yield %>
+      </div>
+    </main>
     <remote-modal-container></remote-modal-container>
   </body>
 </html>

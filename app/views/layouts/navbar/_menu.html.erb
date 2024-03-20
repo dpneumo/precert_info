@@ -1,0 +1,18 @@
+<div data-navbar-target="menu" class="hidden w-full lg:flex lg:items-center lg:w-auto z-20">
+  <ul class="pt-4 text-lg text-gray-700 md:flex md:justify-between md:pt-0">
+    <li><%= render 'layouts/navbar/link', link: {path: precerts_path,  label: 'Precerts'} %></li>
+    <li><%= render 'layouts/navbar/link', link: {path: providers_path, label: 'Providers'} %></li>
+    <li><%= render 'layouts/navbar/link', link: {path: offices_path,   label: 'Offices'} %></li>
+    <li><%= render 'layouts/navbar/link', link: {path: diagnoses_path, label: 'Diagnoses'} %></li>
+    <li><%= render 'layouts/navbar/link', link: {path: services_path,  label: 'Services'} %></li>
+    <li><%= render 'layouts/navbar/link', link: {path: insurers_path,  label: 'Insurers'} %></li>
+
+    <li><%= render "layouts/navbar/dropdown",
+              btn_label: 'User',
+              items: [
+                {type: :deleter, path: destroy_user_session_path, label: 'Log out'},
+                {type: :divider},
+                {type: :link, path: edit_user_registration_path, label: 'Edit Profile'}
+              ] %></li>
+  </ul>
+</div>

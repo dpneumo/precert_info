@@ -16,11 +16,15 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'ae3f3f5ac1ae5f32ff87ebc329197e95c7ccc2ba897f1700f9a71650926ee6c5237b2cd470ae7efe4192af0f3cf80e503288660823b1290b2e856a12d366d864'
 
+  ##############################################################################
   # ==> Controller configuration
+
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
 
+  ##############################################################################
   # ==> Mailer Configuration
+
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
@@ -32,13 +36,17 @@ Devise.setup do |config|
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
 
+  ##############################################################################
   # ==> ORM configuration
+
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
 
+  ##############################################################################
   # ==> Configuration for any authentication mechanism
+
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
   # authenticating a user, both parameters are required. Remember that those
@@ -111,7 +119,9 @@ Devise.setup do |config|
   # won't boot properly.
   # config.reload_routes = true
 
+  ##############################################################################
   # ==> Configuration for :database_authenticatable
+
   # For bcrypt, this is the cost for hashing the password and defaults to 12. If
   # using other algorithms, it sets how many times you want the password to be hashed.
   # The number of stretches used for generating the hashed password are stored
@@ -134,7 +144,9 @@ Devise.setup do |config|
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
+  ##############################################################################
   # ==> Configuration for :confirmable
+
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
   # able to access the website for two days without confirming their account,
@@ -143,7 +155,7 @@ Devise.setup do |config|
   # without confirming their account.
   # Default is 0.days, meaning the user cannot access the website without
   # confirming their account.
-  config.allow_unconfirmed_access_for = 0.days
+  config.allow_unconfirmed_access_for = nil #0.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm
@@ -162,7 +174,9 @@ Devise.setup do |config|
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
 
+  ##############################################################################
   # ==> Configuration for :rememberable
+
   # The time the user will be remembered without asking for credentials again.
   # config.remember_for = 2.weeks
 
@@ -176,7 +190,9 @@ Devise.setup do |config|
   # secure: true in order to force SSL only cookies.
   # config.rememberable_options = {}
 
+  ##############################################################################
   # ==> Configuration for :validatable
+
   # Range for password length.
   config.password_length = 8..128
 
@@ -185,12 +201,16 @@ Devise.setup do |config|
   # to give user feedback and not to assert the e-mail validity.
   config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 
+  ##############################################################################
   # ==> Configuration for :timeoutable
+
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
   # config.timeout_in = 30.minutes
 
+  ##############################################################################
   # ==> Configuration for :lockable
+
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
@@ -216,8 +236,9 @@ Devise.setup do |config|
   # Warn on the last attempt before the account is locked.
   # config.last_attempt_warning = true
 
+  ##############################################################################
   # ==> Configuration for :recoverable
-  #
+
   # Defines which key will be used when recovering the password for an account
   # config.reset_password_keys = [:email]
 
@@ -230,7 +251,9 @@ Devise.setup do |config|
   # reset. Defaults to true, so a user is signed in automatically after a reset.
   # config.sign_in_after_reset_password = true
 
+  ##############################################################################
   # ==> Configuration for :encryptable
+
   # Allow you to use another hashing or encryption algorithm besides bcrypt (default).
   # You can use :sha1, :sha512 or algorithms from others authentication tools as
   # :clearance_sha1, :authlogic_sha512 (then you should set stretches above to 20
@@ -254,7 +277,9 @@ Devise.setup do |config|
   # only the current scope. By default, Devise signs out all scopes.
   # config.sign_out_all_scopes = true
 
+  ##############################################################################
   # ==> Navigation configuration
+
   # Lists the formats that should be treated as navigational. Formats like
   # :html should redirect to the sign in page when the user does not have
   # access, but formats like :xml or :json, should return 401.
@@ -268,12 +293,16 @@ Devise.setup do |config|
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
+  ##############################################################################
   # ==> OmniAuth
+
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  ##############################################################################
   # ==> Warden configuration
+
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
@@ -282,7 +311,9 @@ Devise.setup do |config|
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
   # end
 
+  ##############################################################################
   # ==> Mountable engine configurations
+
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
   # is mountable, there are some extra configurations to be taken into account.
   # The following options are available, assuming the engine is mounted as:
@@ -296,7 +327,9 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
+  ##############################################################################
   # ==> Hotwire/Turbo configuration
+
   # When using Devise with Hotwire/Turbo, the http status for error responses
   # and some redirects must match the following. The default in Devise for existing
   # apps is `200 OK` and `302 Found` respectively, but new apps are generated with
@@ -305,6 +338,7 @@ Devise.setup do |config|
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
 
+  ##############################################################################
   # ==> Configuration for :registerable
 
   # When set to false, does not sign a user in automatically after their password is
