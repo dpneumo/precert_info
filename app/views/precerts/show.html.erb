@@ -1,10 +1,10 @@
 <% if notice.present? %>
-<div class="grid grid-col justify-center mb-5 px-3 inline-block" id="notice">
+<div class="grid grid-cols-1 justify-center mb-5 px-3 inline-block" id="notice">
   <p class='text-green-500 font-sans font-medium'><%= notice %></p>
 </div>
 <% end %>
 
-<div class="grid grid-col justify-center mx-10">
+<div class="grid grid-cols-2 justify-center mx-4">
   <div class='col-start-1 grid grid-rows-auto mx-4 min-w-80'>
     <div class='row-start-1 max-h-fit'>
       <%= render 'precerts/show/precert' %>
@@ -21,14 +21,14 @@
               new_precert_contact_path(@precert),
               class: 'btn-shape-thin btn-green btn-text',
               data: { turbo_stream: true } %>
-      <%= link_to "New Peer-to-Peer",
+      <%= link_to "New P2P",
               new_precert_peer2peer_path(@precert),
               class: 'btn-shape-thin btn-green btn-text',
               data: { turbo_stream: true } %>
     </div>
   </div>
 
-  <div class='col-start-1 grid grid-rows-auto mx-4 lg:col-start-2'>
+  <div class='col-start-2 grid grid-rows-auto mx-4 lg:col-start-2'>
     <div>
       <%= render 'precerts/show/related_contacts', contacts: @precert.contacts %>
       <%= render 'precerts/show/related_p2ps', p2ps: @precert.peer2peers %>
