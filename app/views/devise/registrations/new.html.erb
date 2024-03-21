@@ -1,31 +1,24 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 w-full">
+<div class='justify-self-center'>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class='mx-6 mb-6 mt-2'>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
+    <h1 class='font-sans font-bold text-lg'>Sign Up</h1>
 
-      <h1 class='font-sans font-bold text-lg'>Sign Up</h1>
+    <%= render 'devise/shared/form_field',
+          f: f, label: 'Email', item: :email,
+          autofocus: true, autocomplete: 'email' %>
 
-      <%= render 'devise/shared/form_field',
-            f: f, label: 'Email', item: :email,
-            autofocus: true, autocomplete: 'email' %>
+    <%= render 'devise/shared/password_field',
+          f: f, label: 'Password', item: :password,
+          autocomplete: 'new-password' %>
 
-      <%= render 'devise/shared/password_field',
-            f: f, label: 'Password', item: :password,
-            autocomplete: 'new-password' %>
+    <%= render 'devise/shared/password_field',
+          f: f, label: 'Confirm Password', item: :password_confirmation,
+          autocomplete: 'new-password' %>
 
-      <%= render 'devise/shared/password_field',
-            f: f, label: 'Confirm Password', item: :password_confirmation,
-            autocomplete: 'new-password' %>
+    <%= render 'devise/shared/submit',
+          f: f, label: 'Sign up' %>
 
-      <%= render 'devise/shared/submit',
-            f: f, label: 'Sign up' %>
-
-    <% end %>
-  </div>
-
-  <div class='mx-6 mb-6 mt-2'>
     <%= render "devise/shared/links" %>
-  </div>
-
+  <% end %>
 </div>

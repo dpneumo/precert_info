@@ -1,24 +1,24 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <h1 class="font-sans font-bold text-lg">Log In</h1>
+<div class='justify-self-center'>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h1 class="font-sans font-bold text-lg">Log In</h1>
 
-  <%= render 'devise/shared/form_field',
-        f: f, label: 'Email', item: :email,
-        autofocus: true, autocomplete: 'email' %>
+    <%= render 'devise/shared/form_field',
+          f: f, label: 'Email', item: :email,
+          autofocus: true, autocomplete: 'email' %>
 
-  <%= render 'devise/shared/password_field',
-        f: f, label: 'Password', item: :password,
-        autofocus: false, autocomplete: 'password' %>
+    <%= render 'devise/shared/password_field',
+          f: f, label: 'Password', item: :password,
+          autofocus: false, autocomplete: 'password' %>
 
 
-  <% if devise_mapping.rememberable? %>
-    <%= render 'devise/shared/check_box',
-          f: f, label: 'Remember me', item: :remember_me %>
+    <% if devise_mapping.rememberable? %>
+      <%= render 'devise/shared/check_box',
+            f: f, label: 'Remember me', item: :remember_me %>
+    <% end %>
+
+    <%= render 'devise/shared/submit',
+          f: f, label: 'Log in' %>
+
+    <%= render "devise/shared/links" %>
   <% end %>
-
-  <%= render 'devise/shared/submit',
-        f: f, label: 'Log in' %>
-
-  <%= render "devise/shared/links" %>
-
-<% end %>
-
+</div>
