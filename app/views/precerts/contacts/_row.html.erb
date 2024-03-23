@@ -1,18 +1,11 @@
   <tr class='<%= background %>' >
-    <td class='td-pad td-base'><%= contact.date_of_contact %></td>
-    <td class='td-pad td-base'><%= contact.dur_of_contact %></td>
-    <td class='td-pad td-base hidden lg:table-cell'><%= contact.note_hint %></td>
-    <td scope="col" class="th-pad th-base-right">
-      <%= link_to 'Edit',
+    <td class='td-pad td-base'>
+      <%= link_to contact.date_of_contact,
               edit_precert_contact_path(contact.precert, contact),
-              class: 'text-base font-sans font-medium link-hover',
+              class: "td-emphasized link-hover",
               data: { turbo_stream: true } %>
     </td>
-    <td>
-      <%= link_to( 'Delete',
-              precert_contact_path(contact.precert, contact),
-              class: 'text-base font-sans font-medium link-hover',
-              data: { turbo_method: :delete,
-                      turbo_confirm: "Are you sure?" }) %>
-    </td>
+
+    <td class='td-pad td-base hidden xl:table-cell'><%= contact.dur_of_contact %></td>
+    <td class='td-pad td-base'><%= contact.note_hint %></td>
   </tr>

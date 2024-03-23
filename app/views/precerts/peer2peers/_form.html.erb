@@ -43,12 +43,18 @@
     </div>
   </div>
 
-  <div class="flex items-center justify-end">
+  <div class="flex flex-row mx-4 my-4 space-x-4">
         <%= form.submit 'Save',
-                  class: "inline-block h-10 mx-4 font-sans submit-button" %>
+                  class: "py-1 px-4 rounded bg-blue-500 hover:bg-blue-700 text-white font-sans font-bold" %>
         <%= form.button "Close",
-                  class: "inline-block h-10 mx-4 font-sans",
+                  class: "py-1 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold",
                   value: nil,
                   formmethod: :dialog %>
+        <div class="py-1 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold">
+          <%= link_to "Delete",
+                    precert_peer2peer_path(peer2peer.precert, peer2peer),
+                    data: { turbo_method: :delete,
+                            turbo_confirm: "Are you sure?" } %>
+        </div>
   </div>
 <% end %>

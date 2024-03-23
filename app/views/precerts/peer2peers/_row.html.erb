@@ -1,20 +1,13 @@
   <tr class='<%= background %>' >
-    <td class='td-pad td-base'><%= p2p.date_of_p2p %></td>
-    <td class='td-pad td-base'><%= p2p.dur_of_contact %></td>
-    <td class='td-pad td-base'><%= p2p.provider_name %></td>
-    <td class='td-pad td-base'><%= p2p.peer %></td>
-    <td class='td-pad td-base hidden lg:table-cell'><%= p2p.note_hint %></td>
-    <td scope="col" class="th-pad th-base-right">
-      <%= link_to 'Edit',
+    <td class='td-pad td-base'>
+      <%= link_to p2p.date_of_p2p,
               edit_precert_peer2peer_path(p2p.precert, p2p),
-              class: 'text-base font-sans font-medium link-hover',
+              class: "td-emphasized link-hover",
               data: { turbo_stream: true } %>
     </td>
-    <td>
-      <%= link_to( 'Delete',
-              precert_peer2peer_path(p2p.precert, p2p),
-              class: 'text-base font-sans font-medium link-hover',
-              data: { turbo_method: :delete,
-                      turbo_confirm: "Are you sure?" }) %>
-    </td>
+
+    <td class='td-pad td-base hidden xl:table-cell'><%= p2p.dur_of_contact %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= p2p.provider_name %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= p2p.peer %></td>
+    <td class='td-pad td-base'><%= p2p.note_hint %></td>
   </tr>
