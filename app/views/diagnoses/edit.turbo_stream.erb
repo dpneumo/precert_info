@@ -1,11 +1,11 @@
 <%= turbo_stream.show_remote_modal do %>
-  <dialog id="office_form_modal"
+  <dialog id="diagnosis_form_modal"
           aria-labelledby="modal_title">
     <%= render 'shared/modal_header',
-                title: 'Edit Office' %>
+                title: 'Edit Diagnosis' %>
 
-    <%= render 'offices/form',
-                office: @office,
+    <%= render 'diagnoses/form',
+                diagnosis: @diagnosis,
                 method: :patch %>
   </dialog>
 <% end %>

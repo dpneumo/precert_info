@@ -1,0 +1,40 @@
+<%= form_with( model: office, method: method ) do |form| %>
+	<div class="flex flex-col md:flex-row">
+		  <%= render 'shared/form/text_field', attrib: :name, form: form %>
+	</div>
+
+	<div class="flex flex-col md:flex-row">
+	  <%= render 'shared/form/text_field', attrib: :street1, form: form %>
+	  <%= render 'shared/form/text_field', attrib: :street2, form: form %>
+	</div>
+
+	<div class="flex flex-col md:flex-row">
+	  <%= render 'shared/form/text_field', attrib: :city, form: form %>
+	  <%= render 'shared/form/text_field', attrib: :state, form: form %>
+	  <%= render 'shared/form/text_field', attrib: :zip, form: form %>
+	</div>
+
+	<div class="flex flex-col md:flex-row">
+  	<%= render 'shared/form/phone_field',
+                    attrib: :ph_main,
+                    label_txt: 'Phone - Main',
+                    form: form %>
+	</div>
+
+  <div class="flex flex-row mx-4 my-4 space-x-4">
+        <%= form.submit 'Save',
+                  class: "py-1 px-4 rounded bg-blue-500 hover:bg-blue-700 text-white font-sans font-bold" %>
+        <%= form.button "Close",
+                  class: "py-1 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold",
+                  value: nil,
+                  formmethod: :dialog %>
+        <% if office.id %>
+					<div class="py-1 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold">
+					  <%= link_to "Delete",
+											office_path(office),
+											data: { turbo_method: :delete,
+															turbo_confirm: "Are you sure?" } %>
+					</div>
+				<% end %>
+  </div>
+<% end %>

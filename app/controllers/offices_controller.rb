@@ -22,19 +22,25 @@ class OfficesController < ApplicationController
   # POST /offices or /offices.json
   def create
     @office = Office.new(office_params)
-    if @office.save
-      redirect_to office_url(@office), notice: "Office was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @office.save
+        format.html { redirect_to offices_url, notice: "Office was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /offices/1 or /offices/1.json
   def update
-    if @office.update(office_params)
-      redirect_to office_url(@office), notice: "Office was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @office.update(office_params)
+        format.html { redirect_to offices_url, notice: "Office was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 

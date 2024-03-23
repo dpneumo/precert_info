@@ -1,9 +1,10 @@
   <tr class='<%= background %>' >
     <td class='td-pad'>
       <%= link_to item.name,
-                  office_path(item),
-                  class: "td-emphasized link-hover" %>
+              edit_office_path(item),
+              class: "td-emphasized link-hover",
+              data: { turbo_stream: true } %>
     </td>
     <td class='td-pad td-base'><%= item.address %></td>
-    <td class='td-pad td-base'><%= item.ph_main %></td>
+    <td class='td-pad td-base hidden xl:table-cell'><%= item.ph_main %></td>
   </tr>

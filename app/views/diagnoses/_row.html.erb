@@ -1,8 +1,9 @@
   <tr class='<%= background %>' >
     <td class='td-pad'>
       <%= link_to item.name,
-                  diagnosis_path(item),
-                  class: "td-emphasized link-hover" %>
+              edit_diagnosis_path(item),
+              class: "td-emphasized link-hover",
+              data: { turbo_stream: true } %>
     </td>
     <td class='td-pad td-base'><%= item.icd10 %></td>
     <td class='td-pad td-base'><%= item.dxtype %></td>

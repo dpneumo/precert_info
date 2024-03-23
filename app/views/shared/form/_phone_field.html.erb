@@ -1,8 +1,8 @@
   <div class="mx-4 mb-5 min-w-0">
-    <%= form.label :attrib, label_txt, 
+    <%= form.label attrib, label_txt,
           style: "display: block", 
           class:'form-field-label' %>
-    <%= form.telephone_field :attrib,
+    <%= form.telephone_field attrib,
           class: 'base-field ring',
           placeholder: "123-456-7890",
           pattern: Office.ph_pattern %>

@@ -22,19 +22,25 @@ class DiagnosesController < ApplicationController
   # POST /diagnoses or /diagnoses.json
   def create
     @diagnosis = Diagnosis.new(diagnosis_params)
-    if @diagnosis.save
-      redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @diagnosis.save
+        format.html { redirect_to diagnoses_url, notice: "Diagnosis was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /diagnoses/1 or /diagnoses/1.json
   def update  
-    if @diagnosis.update(diagnosis_params)
-      redirect_to diagnosis_url(@diagnosis), notice: "Diagnosis was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @diagnosis.update(diagnosis_params)
+        format.html { redirect_to diagnoses_url, notice: "Diagnosis was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -52,6 +58,6 @@ class DiagnosesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def diagnosis_params
-      params.require(:diagnosis).permit(:name, :icd10)
+      params.require(:diagnosis).permit(:name, :icd10, :dxtype)
     end
 end
