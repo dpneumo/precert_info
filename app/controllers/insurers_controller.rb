@@ -22,19 +22,25 @@ class InsurersController < ApplicationController
   # POST /insurers or /insurers.json
   def create
     @insurer = Insurer.new(insurer_params)
-    if @insurer.save
-      redirect_to insurer_url(@insurer), notice: "Insurer was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @insurer.save
+        format.html { redirect_to insurers_url, notice: "Insurer was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /insurers/1 or /insurers/1.json
   def update    
-    if @insurer.update(insurer_params)
-      redirect_to insurer_url(@insurer), notice: "Insurer was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @insurer.update(insurer_params)
+          format.html { redirect_to insurers_url, notice: "Insurer was successfully updated." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 

@@ -1,0 +1,11 @@
+<%= turbo_stream.show_remote_modal do %>
+  <dialog id="insurer_form_modal"
+          aria-labelledby="modal_title">
+    <%= render 'shared/modal_header',
+                title: 'Edit Insurer' %>
+
+    <%= render 'insurers/form',
+                insurer: @insurer,
+                method: :patch %>
+  </dialog>
+<% end %>

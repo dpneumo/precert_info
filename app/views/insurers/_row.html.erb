@@ -1,7 +1,8 @@
   <tr class='<%= background %>' >
     <td class='td-pad'>
       <%= link_to item.name,
-                  insurer_path(item),
-                  class: "td-emphasized link-hover" %>
+              edit_insurer_path(item),
+              class: "td-emphasized link-hover",
+              data: { turbo_stream: true } %>
     </td>
   </tr>
