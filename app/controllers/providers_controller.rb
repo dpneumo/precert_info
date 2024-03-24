@@ -3,7 +3,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers or /providers.json
   def index
-    @pagy, @providers = pagy(Provider.all)
+    @pagy, @providers = pagy(Provider.all, items: 12)
   end
 
   # GET /providers/new

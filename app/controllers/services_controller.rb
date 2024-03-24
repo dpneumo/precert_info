@@ -3,7 +3,7 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
-    @pagy, @services = pagy(Service.order(:servtype, :name))
+    @pagy, @services = pagy(Service.order(:servtype, :name), items: 12)
   end
 
   # GET /services/new
