@@ -22,19 +22,25 @@ class ProvidersController < ApplicationController
   # POST /providers or /providers.json
   def create
     @provider = Provider.new(provider_params)
-    if @provider.save
-      redirect_to provider_url(@provider), notice: "Provider was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @provider.save
+        format.html { redirect_to providers_url, notice: "Provider was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /providers/1 or /providers/1.json
   def update
-    if @provider.update(provider_params)
-      redirect_to provider_url(@provider), notice: "Provider was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @provider.update(provider_params)
+        format.html { redirect_to providers_url, notice: "Provider was successfully updated." }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 

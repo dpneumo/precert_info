@@ -22,19 +22,25 @@ class ServicesController < ApplicationController
   # POST /services or /services.json
   def create
     @service = Service.new(service_params)
-    if @service.save
-      redirect_to service_url(@service), notice: "Service was successfully created."
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @service.save
+        format.html { redirect_to services_url, notice: "Service was successfully created." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
   # PATCH/PUT /services/1 or /services/1.json
   def update    
-    if @service.update(service_params)
-      redirect_to service_url(@service), notice: "Service was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @service.update(service_params)
+        format.html { redirect_to services_url, notice: "Service was successfully updated." }
+      else
+        format.html { redirect_back fallback_location: root_path , notice: 'Something went wrong.' }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -52,6 +58,6 @@ class ServicesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def service_params
-      params.require(:service).permit(:name, :servtype)
+      params.require(:service).permit(:name, :cptcode, :servtype)
     end
 end

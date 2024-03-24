@@ -1,0 +1,11 @@
+<%= turbo_stream.show_remote_modal do %>
+  <dialog id="service_form_modal"
+          aria-labelledby="modal_title">
+    <%= render 'shared/modal_header',
+                title: 'Edit Service' %>
+
+    <%= render 'services/form',
+                service: @service,
+                method: :patch %>
+  </dialog>
+<% end %>
