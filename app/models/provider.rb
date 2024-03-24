@@ -6,7 +6,7 @@ class Provider < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    all.map {|prov| [prov.name, prov.id] }
+    order(:name).map {|prov| [prov.name, prov.id] }
   end
 
   def self.ndx_header

@@ -8,7 +8,7 @@ class Office < ApplicationRecord
 
 #TODO: Cache this?
   def self.select_collection
-    all.map {|off| [off.name, off.id] }
+    order(:name).map {|off| [off.name, off.id] }
   end
 
   def self.ndx_header
