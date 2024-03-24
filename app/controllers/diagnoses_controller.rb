@@ -1,13 +1,9 @@
 class DiagnosesController < ApplicationController
-  before_action :set_diagnosis, only: %i[ show edit update destroy ]
+  before_action :set_diagnosis, only: %i[ edit update destroy ]
 
   # GET /diagnoses or /diagnoses.json
   def index
     @pagy, @diagnoses = pagy(Diagnosis.order(:dxtype, :name))
-  end
-
-  # GET /diagnoses/1 or /diagnoses/1.json
-  def show
   end
 
   # GET /diagnoses/new

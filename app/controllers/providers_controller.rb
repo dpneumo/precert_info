@@ -1,13 +1,9 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: %i[ show edit update destroy ]
+  before_action :set_provider, only: %i[ edit update destroy ]
 
   # GET /providers or /providers.json
   def index
     @pagy, @providers = pagy(Provider.all)
-  end
-
-  # GET /providers/1 or /providers/1.json
-  def show
   end
 
   # GET /providers/new

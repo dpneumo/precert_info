@@ -1,13 +1,9 @@
 class InsurersController < ApplicationController
-  before_action :set_insurer, only: %i[ show edit update destroy ]
+  before_action :set_insurer, only: %i[ edit update destroy ]
 
   # GET /insurers or /insurers.json
   def index
     @pagy, @insurers = pagy(Insurer.all)
-  end
-
-  # GET /insurers/1 or /insurers/1.json
-  def show
   end
 
   # GET /insurers/new

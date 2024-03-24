@@ -1,13 +1,9 @@
 class OfficesController < ApplicationController
-  before_action :set_office, only: %i[ show edit update destroy ]
+  before_action :set_office, only: %i[ edit update destroy ]
 
   # GET /offices or /offices.json
   def index
     @pagy, @offices = pagy(Office.all)
-  end
-
-  # GET /offices/1 or /offices/1.json
-  def show
   end
 
   # GET /offices/new

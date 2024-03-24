@@ -1,9 +1,5 @@
 class Peer2peersController < ApplicationController
-  before_action :set_peer2peer, only: %i[ show edit update destroy ]
-
-  # GET /precerts/1/peer2peers/1
-  def show
-  end
+  before_action :set_peer2peer, only: %i[ edit update destroy ]
 
   # GET /precerts/1/peer2peers/new
   def new

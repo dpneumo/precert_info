@@ -1,9 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: %i[ show edit update destroy ]
-
-  # GET /precerts/1/contacts/1
-  def show
-  end
+  before_action :set_contact, only: %i[ edit update destroy ]
 
   # GET /precerts/1/contacts/new
   def new

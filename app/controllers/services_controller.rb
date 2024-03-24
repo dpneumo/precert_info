@@ -1,13 +1,9 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :set_service, only: %i[ edit update destroy ]
 
   # GET /services or /services.json
   def index
     @pagy, @services = pagy(Service.order(:servtype, :name))
-  end
-
-  # GET /services/1 or /services/1.json
-  def show
   end
 
   # GET /services/new
