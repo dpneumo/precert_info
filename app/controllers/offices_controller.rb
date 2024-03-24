@@ -3,7 +3,7 @@ class OfficesController < ApplicationController
 
   # GET /offices or /offices.json
   def index
-    @pagy, @offices = pagy(Office.all, items: 12)
+    @pagy, @offices = pagy(Office.order(:name), items: 12)
   end
 
   # GET /offices/new
