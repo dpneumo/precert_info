@@ -1,4 +1,4 @@
-<div class='justify-self-center'>
+<div class='w-1/6'>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h1 class="font-sans font-bold text-lg">Log In</h1>
 
@@ -13,7 +13,7 @@
 
     <% if devise_mapping.rememberable? %>
       <%= render 'devise/shared/check_box',
-            f: f, label: 'Remember me', item: :remember_me %>
+            f: f, attrib: :remember_me %>
     <% end %>
 
     <%= render 'devise/shared/submit',
