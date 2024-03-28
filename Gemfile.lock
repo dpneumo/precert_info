@@ -144,20 +144,23 @@ GEM
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-smtp (0.4.0.1)
+    net-smtp (0.5.0)
       net-protocol
-    nio4r (2.7.0)
-    nokogiri (1.16.2-x64-mingw-ucrt)
+    nio4r (2.7.1)
+    nokogiri (1.16.3-x64-mingw-ucrt)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.5.0)
+    passenger (6.0.20)
+      rack
+      rake (>= 0.8.1)
     psych (5.1.2)
       stringio
     public_suffix (5.0.4)
     puma (6.4.2)
       nio4r (~> 2.0)
     racc (1.7.3)
-    rack (3.0.9.1)
+    rack (3.0.10)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -195,17 +198,17 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rdoc (6.6.2)
+    rdoc (6.6.3.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.0)
-    reline (0.4.3)
+    reline (0.5.0)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
     rubyzip (2.3.2)
-    selenium-webdriver (4.18.1)
+    selenium-webdriver (4.19.0)
       base64 (~> 0.2)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -217,7 +220,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.7.2-x64-mingw-ucrt)
+    sqlite3 (1.7.3-x64-mingw-ucrt)
     stimulus-rails (1.3.3)
       railties (>= 6.0.0)
     stringio (3.1.0)
@@ -260,6 +263,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pagy (~> 6.4)
+  passenger (>= 5.3.2)
   puma (>= 5.0)
   rails (~> 7.1.3)
   selenium-webdriver
@@ -275,4 +279,4 @@ RUBY VERSION
    ruby 3.3.0p0
 
 BUNDLED WITH
-   2.5.3
+   2.5.6
