@@ -4,8 +4,7 @@ class Provider < ApplicationRecord
 
   validates :name, presence: true
 
-#TODO: Cache this?
-  def self.select_collection
+  def self.select_options
     order(:name).map {|prov| [prov.name, prov.id] }
   end
 

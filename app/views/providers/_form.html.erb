@@ -6,7 +6,7 @@
 	<div class="flex flex-col md:flex-row">
 	  <%= render 'shared/form/select_field', attrib: :office_id, form: form,
                 label_txt: 'Office',
-                collection: Office.select_collection,
+                collection: office_options,
                 include_blank: true,
                 selected: provider.office_id %>
 	</div>

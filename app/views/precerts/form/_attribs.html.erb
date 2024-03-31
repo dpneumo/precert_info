@@ -5,17 +5,17 @@
 <div class="flex flex-col md:flex-row">
   <%= render 'shared/form/select_field', attrib: :provider_id, form: form,
                   label_txt: 'Provider',
-                  collection: Provider.select_collection,
+                  collection: provider_options,
                   include_blank: true,
                   selected: mdl.provider_id %>
   <%= render 'shared/form/select_field', attrib: :diagnosis_id, form: form,
                   label_txt: 'Diagnosis',
-                  collection: Diagnosis.grouped_select_collection,
+                  collection: dx_grouped_options,
                   include_blank: true,
                   selected: mdl.diagnosis_id %>
   <%= render 'shared/form/select_field', attrib: :service_id, form: form,
                   label_txt: 'Service',
-                  collection: Service.grouped_select_collection,
+                  collection: svc_grouped_options,
                   include_blank: true,
                   selected: mdl.service_id %>
 </div>
@@ -24,7 +24,7 @@
   <%= render 'shared/form/date_field', attrib: :submission_date, form: form %>
   <%= render 'shared/form/select_field', attrib: :insurer_id, form: form,
                   label_txt: 'Insurer',
-                  collection: Insurer.select_collection,
+                  collection: insurer_options,
                   include_blank: true,
                   selected: mdl.insurer_id %>
 </div>

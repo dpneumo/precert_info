@@ -3,8 +3,7 @@ class Insurer < ApplicationRecord
 
   validates :name, presence: true
 
-#TODO: Cache this?
-  def self.select_collection
+  def self.select_options
     order(:name).map {|ins| [ins.name, ins.id] }
   end
 

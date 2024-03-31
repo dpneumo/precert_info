@@ -4,17 +4,22 @@ class Diagnosis < ApplicationRecord
   validates :name, presence: true
   validates :icd10, presence: true
 
-#TODO: Cache this?
-  def self.select_collection
-    order(:dxtype, :name).map {|dx| [dx.name, dx.id] }
+  def self.select_options
+    pluck(:dxtype, :name, :id)
+     .sort(:dxtype, :name)
+     .map {|dx| [dx.name, dx.id] }
   end
 
-  def self.grouped_select_collection
+  def self.grouped_options
     h = Hash.new {|hash,key| hash[key] = [] }
     order(:dxtype, :name).inject(h) do |coll, dx| 
       coll[dx.dxtype].append([dx.name, dx.id]) 
       coll
-    end
+    end.to_a
+  end
+
+  def self.dxtypes
+    distinct.pluck(:dxtype).sort
   end
 
   def self.ndx_header

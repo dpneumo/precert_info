@@ -6,8 +6,7 @@ class Office < ApplicationRecord
 	validates :city, presence: true
 	validates :zip, presence: true
 
-#TODO: Cache this?
-  def self.select_collection
+  def self.select_options
     order(:name).map {|off| [off.name, off.id] }
   end
 
