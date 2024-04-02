@@ -43,6 +43,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # For Letter Opener
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
+  config.mailer_sender = 'no-reply@designerdiscount.club'
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
