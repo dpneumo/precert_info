@@ -38,5 +38,5 @@ precert2 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, d
 precert3 = Precert.find_or_create_by!(patientMRN: '123', service_id: serv1.id, diagnosis_id: dx1.id, provider_id: prov1.id, insurer_id: ins2.id, status: 1, submission_date: Date.new(2023,10,15) )
 
 if ! User.find_by(email: 'delete.me@dummy.com')
-  User.new(email: 'delete.me@dummy.com', password: 'YouWillBeHacked', password_confirmation: 'YouWillBeHacked').save
+  User.new(email: 'delete.me@dummy.com', password: 'YouWillBeHacked', password_confirmation: 'YouWillBeHacked', role: 'admin').save
 end

@@ -84,7 +84,6 @@ Rails.application.configure do
     user_name: Rails.application.credentials.dig(:gmail, :user_name),
     password: Rails.application.credentials.dig(:gmail, :password),
     authentication: 'plain',
-    tls: true,
     enable_starttls_auto: true,
   }
 

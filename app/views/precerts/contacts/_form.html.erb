@@ -33,11 +33,13 @@
                   class: "py-1 px-4 rounded bg-gray-500 hover:bg-gray-700 text-white font-sans font-bold",
                   value: nil,
                   formmethod: :dialog %>
-				<div class="py-1 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold">
-				  <%= link_to "Delete",
-										precert_contact_path(contact.precert, contact),
-										data: { turbo_method: :delete,
-														turbo_confirm: "Are you sure?" } %>
-				</div>
+				<% if contact.id %>
+					<div class="py-1 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold">
+					  <%= link_to "Delete",
+											precert_contact_path(contact.precert, contact),
+											data: { turbo_method: :delete,
+															turbo_confirm: "Are you sure?" } %>
+					</div>
+				<% end %>
   </div>
 <% end %>

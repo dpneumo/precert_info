@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,  skip: [:registrations], 
+                      controllers: { sessions: 'users/sessions' }
 
   authenticate :user do
+    namespace :admin do
+      resources :users
+    end
+    
     resources :precerts do 
       resources :contacts, except: [:index] 
       resources :peer2peers, except: [:index]
