@@ -102,7 +102,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Enable DNS rebinding protection and other `Host` header attacks.
-  config.hosts = [ "precertinfo.net" ]
+  config.hosts = [ "precertinfo.net", '137.184.91.236'  ]
   #   "example.com",     # Allow requests from example.com
   #   /.*\.example\.com/ # Allow requests from subdomains like `www.example.com`
   # ]
