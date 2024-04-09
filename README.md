@@ -32,4 +32,20 @@ https://github.com/mailhog/MailHog
 	config/environments/development.rb:
 	  # For Mail Catcher & Mail Hog
 	  config.action_mailer.delivery_method = :smtp
-	  config.action_mailer.smtp_settings = { :address => "127.0.0.1", :port => 1025 }
+	  config.action_mailer.smtp_settings = { address: "127.0.0.1", port: 1025 }
+
+
+Initial install from GitHub:
+
+bin/bundle install
+bin/rails db:migrate
+bin/rails db:seed
+
+First start up the admin user is:
+	User:     delete.me@dummy.com
+	Password: YouWillBeHacked
+
+Log in to precert_info.net as delete.me@dummy.com
+Add admin user: dpneumo@gmail.com
+Log In as dpneumo@gmail.com
+Delete user Delete Me
