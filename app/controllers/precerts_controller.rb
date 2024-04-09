@@ -23,7 +23,7 @@ class PrecertsController < ApplicationController
 
   # POST /precerts or /precerts.json
   def create
-    set_status_and_approved(precert_params)  
+    precert_params = set_status_and_approved(precert_params)  
     @precert = Precert.new(precert_params)
     if @precert.save
       redirect_to precert_url(@precert), 
