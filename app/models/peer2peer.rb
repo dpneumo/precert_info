@@ -14,7 +14,7 @@ class Peer2peer < ApplicationRecord
 
   def provider_name
     return '' unless provider_id
-    provider.name 
+    provider.prov_name 
   end
 
   def note_hint
