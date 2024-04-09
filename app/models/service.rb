@@ -23,4 +23,9 @@ class Service < ApplicationRecord
   def self.newlink_txt
     "New Service"
   end
+
+  def service_hint
+    return '' unless name  
+    name.length > 20 ? name.slice(0..19)+'...' : name
+  end
 end

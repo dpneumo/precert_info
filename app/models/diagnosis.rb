@@ -29,4 +29,9 @@ class Diagnosis < ApplicationRecord
   def self.newlink_txt
     "New Diagnosis"
   end
+
+  def dx_hint
+    return '' unless name  
+    name.length > 20 ? name.slice(0..19)+'...' : name
+  end
 end

@@ -4,15 +4,13 @@
                   precert_path(item),
                   class: "td-emphasized link-hover" %>
     </td>
-    <td class='td-pad td-base hidden lg:table-cell'><%= item.status %></td>
     <td class='td-pad td-base'><%= item.patientMRN %></td>
-    <td class='td-pad td-base'><%= item.provider.name %></td>
-    <td class='td-pad td-base hidden sm:table-cell'><%= item.diagnosis.name %></td>
-    <td class='td-pad td-base'><%= item.service.name %></td>
-    <td class='td-pad td-base hidden md:table-cell'><%= item.insurer.name %></td>
-    <td class='td-pad td-base hidden lg:table-cell'><%= item.fmtd_submit_date %></td>
+    <td class='td-pad td-base'><%= item.provider.prov_name %></td>
+    <td class='td-pad td-base hidden md:table-cell'><%= item.diagnosis.dx_hint %></td>
+    <td class='td-pad td-base'><%= item.service.service_hint %></td>
+    <td class='td-pad td-base hidden lg:table-cell'><%= item.insurer.name %></td>
+    <td class='td-pad td-base hidden xl:table-cell'><%= item.fmtd_submit_date %></td>
     <td class='td-pad td-base hidden xl:table-cell'><%= item.fmtd_approval_date %></td>
-    <td class='td-pad td-base hidden xl:table-cell'><%= item.confirm_hint %></td>
-    <td class='td-pad td-base hidden xl:table-cell'><%= item.fmtd_closed_date %></td>
-    <td class='td-pad td-base hidden xl:table-cell'><%= item.note_hint %></td>
+    <td class='td-pad td-base hidden 2xl:table-cell'><%= item.confirm_hint %></td>
+    <td class='td-pad td-base hidden 2xl:table-cell'><%= item.note_hint %></td>
   </tr>
