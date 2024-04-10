@@ -110,7 +110,7 @@ serv8  = Service.find_or_create_by!(name: 'Narcolepsy Screen (PSG -> MSLT)', cpt
 serv9  = Service.find_or_create_by!(name: 'Narcolepsy Screen (PAP titration -> MSLT)', cptcode: '95811, 95805', servtype: 'Sleep')
 serv10 = Service.find_or_create_by!(name: 'Titration, CPAP-BiPAP', cptcode: '95811', servtype: 'Sleep')
 serv11 = Service.find_or_create_by!(name: 'Titration, BiPAP-ASV', cptcode: '95811,V', servtype: 'Sleep')
-serv12 = Service.find_or_create_by!(name: 'PSG, Split Noc', cptcode: '958??', servtype: 'Sleep')
+serv12 = Service.find_or_create_by!(name: 'PSG, Split Noc', cptcode: '95808, 95811', servtype: 'Sleep')
 
 ins1 = Insurer.find_or_create_by!(name: 'BCBS of Texas')
 ins2 = Insurer.find_or_create_by!(name: 'Aetna')
