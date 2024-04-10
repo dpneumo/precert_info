@@ -8,21 +8,23 @@
       <%= render 'precerts/show/precert' %>
     </div>
 
-    <div class='flex-none h-fit my-3 space-x-4'>
+    <div class='flex-none w-full h-fit my-3 flex space-x-4'>
       <%= render "shared/show/edit_btn", path: edit_precert_path(@precert) %>
       <%= render "shared/show/back_btn", path: precerts_path %>
       <%= render "shared/show/delete_btn", path: precert_path(@precert) %>
     </div>
 
-    <div class='flex-none h-fit -ml-4 mt-5'>
-      <%= link_to "New Contact",
+    <div class='flex-none h-fit -ml-4 mt-5 flex'>
+      <%= button_to "New Contact",
               new_precert_contact_path(@precert),
-              class: 'btn-shape-thin btn-green btn-text',
-              data: { turbo_stream: true } %>
-      <%= link_to "New P2P",
+              method: :get,
+              data: { turbo_stream: true },
+              class: 'btn-shape-thin btn-green btn-text' %>
+      <%= button_to "New P2P",
               new_precert_peer2peer_path(@precert),
-              class: 'btn-shape-thin btn-green btn-text',
-              data: { turbo_stream: true } %>
+              method: :get,
+              data: { turbo_stream: true },
+              class: 'btn-shape-thin btn-green btn-text' %>
     </div>
   </div>
 

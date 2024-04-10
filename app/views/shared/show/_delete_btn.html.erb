@@ -1,6 +1,6 @@
-<%= button_to( 'Delete',
-					    path,
-					    method: :delete,
-							form: { data: { turbo_confirm: "Are you sure?" } },
-							class: 'py-2 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold' )
+<%= button_to 'Delete',
+					     path,
+					     method: :delete,
+							 form: { data: { turbo_confirm: "Are you sure?" } },
+							 class: 'py-1 px-4 rounded bg-red-500 hover:bg-red-700 text-white font-sans font-bold'
 %>
