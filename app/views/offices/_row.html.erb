@@ -3,7 +3,7 @@
       <%= button_to item.name,
               edit_office_path(item),
               method: :get,
-              form: { data: { turbo_stream: true } },
+              data: { turbo_stream: true },
               class: "td-emphasized link-hover" %>
     </td>
     <td class='td-pad td-base'><%= item.address %></td>
