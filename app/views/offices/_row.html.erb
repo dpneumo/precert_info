@@ -1,9 +1,10 @@
   <tr class='<%= background %>' >
     <td class='td-pad'>
-      <%= link_to item.name,
+      <%= button_to item.name,
               edit_office_path(item),
-              class: "td-emphasized link-hover",
-              data: { turbo_stream: true } %>
+              method: :get,
+              form: { data: { turbo_stream: true } },
+              class: "td-emphasized link-hover" %>
     </td>
     <td class='td-pad td-base'><%= item.address %></td>
     <td class='td-pad td-base hidden xl:table-cell'><%= item.ph_main %></td>
